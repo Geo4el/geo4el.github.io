@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Геопортал БРИКС</title>
+  <meta charset="utf-8">
+  <link rel="icon" href="images/logo.png" type="image">
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <style>
+    .custom-marker {
+      background-color: #06ef8e;
+      border: 2px solid white;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .custom-marker-label {
+      font-size: 10px;
+      font-weight: bold;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <a href="./index.html">Главная</a>
+      <div class="dropdown">
+        <button class="dropbtn"> <a href = "./developed.html">Освоенные территории</a></button>
+        <div class="dropdown-content">
+          <a href="./developed.html#d_first">Справочная информация</a>
+          <a href="./developed.html#d_second">Литература</a>
+          <a href="./developed.html#download">Скачать данные</a>
+        </div>
+      </div> 
+      <div class="dropdown">
+        <button class="dropbtn"> <a href = "./undeveloped.html">Неосвоенные территории</a></button>
+        <div class="dropdown-content">
+          <a href="./undeveloped.html#undev">Карты неосвоенных территорий</a>
+          <a href="./undeveloped.html#oopt">ООПТ</a>
+          <a href="./undeveloped.html#kmn">Коренные народы</a>
+        </div>
+      </div> 
+      <a href="./map.html">Интерактивная карта</a>
+    </div>
+  </header>
+  <div id="map" style="width: 100%; height: 600px;"></div>
+  <script>
+    // Инициализация карты
+    var map = L.map('map').setView([0, 20], 2);
+
+    // Подключение базового слоя
+    var baseLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // Группы слоев
+    var countriesLayer = L.layerGroup(); // Для границ стран
+    var capitalsLayer = L.layerGroup(); // Для столиц
+
+    // Загрузка и отображение GeoJSON с границами
+    fetch('./brics_countries.geojson')
+      .then(response => response.json())
+      .then(data => {
+        var geojsonLayer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            let popupContent = `<b>${feature.properties.name || 'Без названия'}</b>`;
+            if (feature.properties.population) {
+              popupContent += `<br>Population: ${feature.properties.population}`;
+            }
+            layer.bindPopup(popupContent);
+          },
+          style: {
+            color: 'DarkGrey',
+            weight: 2,
+            fillOpacity: 0.4
+          }
+        });
+        countriesLayer.addLayer(geojsonLayer); // Добавляем в группу слоев
+        countriesLayer.addTo(map); // Отображаем по умолчанию
+      })
+      .catch(err => console.error(err));
+
+    // Загрузка и отображение GeoJSON со столицами
+    fetch('./Capitals.geojson')
+      .then(response => response.json())
+      .then(data => {
+        var geojsonLayer = L.geoJSON(data, {
+          pointToLayer: function (feature, latlng) {
+            const markerHtml = `
+              <div class="custom-marker">
+                <span class="custom-marker-label">${feature.properties.name[0]}</span>
+              </div>`;
+            const icon = L.divIcon({
+              className: 'custom-div-icon',
+              html: markerHtml,
+              iconSize: [24, 24],
+              iconAnchor: [12, 12]
+            });
+            return L.marker(latlng, { icon: icon }).bindPopup(`<b>${feature.properties.name}`);
+          }
+        });
+        capitalsLayer.addLayer(geojsonLayer); // Добавляем в группу слоев
+      })
+      .catch(err => console.error(err));
+
+    // Панель управления слоями
+    var overlayLayers = {
+      "Границы стран": countriesLayer,
+      "Столицы": capitalsLayer
+    };
+
+    L.control.layers(null, overlayLayers, { collapsed: false }).addTo(map);
+  </script>
+</body>
+</html>
+
+
+
+

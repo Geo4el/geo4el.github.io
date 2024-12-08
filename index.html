@@ -1,103 +1,105 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Геопортал БРИКС</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-  <style>
-    .custom-marker {
-      background-color: #06ef8e;
-      border: 2px solid white;
-      border-radius: 50%;
-      width: 24px;
-      height: 24px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
-    .custom-marker-label {
-      font-size: 10px;
-      font-weight: bold;
-      color: white;
-    }
-  </style>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"> 
+  <title>Главная</title>
+  <link rel="icon" href="images/logo.png" type="image">
+  <link rel="stylesheet" href="css/style.css">
+  <!--script src="js/nav.js"></script-->
 </head>
 <body>
-  <div id="map" style="width: 100%; height: 600px;"></div>
-  <script>
-    // Инициализация карты
-    var map = L.map('map').setView([0, 20], 2);
-
-    // Подключение базового слоя
-    var baseLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      attribution: '© OpenStreetMap'
-    }).addTo(map);
-
-    // Группы слоев
-    var countriesLayer = L.layerGroup(); // Для границ стран
-    var capitalsLayer = L.layerGroup(); // Для столиц
-
-    // Загрузка и отображение GeoJSON с границами
-    fetch('./brics_countries.geojson')
-      .then(response => response.json())
-      .then(data => {
-        var geojsonLayer = L.geoJSON(data, {
-          onEachFeature: function (feature, layer) {
-            let popupContent = `<b>${feature.properties.name || 'Без названия'}</b>`;
-            if (feature.properties.population) {
-              popupContent += `<br>Population: ${feature.properties.population}`;
-            }
-            layer.bindPopup(popupContent);
-          },
-          style: {
-            color: 'DarkGrey',
-            weight: 2,
-            fillOpacity: 0.4
-          }
-        });
-        countriesLayer.addLayer(geojsonLayer); // Добавляем в группу слоев
-        countriesLayer.addTo(map); // Отображаем по умолчанию
-      })
-      .catch(err => console.error(err));
-
-    // Загрузка и отображение GeoJSON со столицами
-    fetch('./Capitals.geojson')
-      .then(response => response.json())
-      .then(data => {
-        var geojsonLayer = L.geoJSON(data, {
-          pointToLayer: function (feature, latlng) {
-            const markerHtml = `
-              <div class="custom-marker">
-                <span class="custom-marker-label">${feature.properties.name[0]}</span>
-              </div>`;
-            const icon = L.divIcon({
-              className: 'custom-div-icon',
-              html: markerHtml,
-              iconSize: [24, 24],
-              iconAnchor: [12, 12]
-            });
-            return L.marker(latlng, { icon: icon }).bindPopup(`<b>${feature.properties.name}`);
-          }
-        });
-        capitalsLayer.addLayer(geojsonLayer); // Добавляем в группу слоев
-      })
-      .catch(err => console.error(err));
-
-    // Панель управления слоями
-    var overlayLayers = {
-      "Границы стран": countriesLayer,
-      "Столицы": capitalsLayer
-    };
-
-    L.control.layers(null, overlayLayers, { collapsed: false }).addTo(map);
-  </script>
+  <header>
+    <div class="navbar">
+      <a href="./index.html">Главная</a>
+      <div class="dropdown">
+        <button class="dropbtn"> <a href = "./developed.html">Освоенные территории</a></button>
+        <div class="dropdown-content">
+          <a href="./developed.html#d_first">Справочная информация</a>
+          <a href="./developed.html#d_second">Литература</a>
+          <a href="./developed.html#download">Скачать данные</a>
+        </div>
+      </div> 
+      <div class="dropdown">
+        <button class="dropbtn"> <a href = "./undeveloped.html">Неосвоенные территории</a></button>
+        <div class="dropdown-content">
+          <a href="./undeveloped.html#undev">Карты неосвоенных территорий</a>
+          <a href="./undeveloped.html#oopt">ООПТ</a>
+          <a href="./undeveloped.html#kmn">Коренные народы</a>
+        </div>
+      </div> 
+      <a href="./map.html">Интерактивная карта</a>
+    </div>
+  </header>
+  <div class="content">
+    <div class = "main">
+      <h1>Неосвоенные природные территории Стран БРИКС</h1>
+      <p>Идея проекта принадлежит доктору биологических наук, профессору Тихоокеанского института географии Дальневосточного отделения РАН
+        В.Н.&nbspБочарникову.<br>
+        Ресурс предназначен для знакомства с природой стран БРИКС, не затронутой хозяйственной деятельностью человека. 
+        На этих территориях важны целостные участки неосвоенного пространства, представляющие ценность для сохранения и развития окружающей среды.
+        Проект рассчитан на тех, кто проявляет интерес к странам БРИКС.</p>
+        <p>
+          <b>Разработка ресурса ведётся рабочей группой кафедры картографии и геоинформатики Санкт-Петербургского Государственного Университета:</b><br>
+          Руководитель группы: доцент кафедры картографии и геоинформатики, к.г.н., Сидорина&nbspИ.Е.<br>
+          Разработка картографических материалов: Яковлев&nbspА.С., Шкрябина&nbspМ.А.<br>
+          Разработка ресурса: Магид&nbspЕ.А.
+         </p>
+    </div>
+    <div class = "flags">
+      <div class = "flag">
+        <img class = "flag" src = "images/640px-Flag_of_Brazil.svg.png">
+        <div class = "card">
+          <p class = "flag" id = 'Name'>Федеративная Республика Бразилия</p>
+          <p class = "flag" id = 'r1'>Население</p>
+          <p class = "flag" id = 'r2'>203.1 млн. чел.</p>
+          <p class = "flag" id = 'r1'>Площадь</p>
+          <p class = "flag" id = 'r2'>8.5 млн. км<sup>2</sup>.</p>
+        </div>
+      </div>
+      <div class = "flag">
+        <img class = "flag" src = "images/640px-Flag_of_Russia.svg.webp">
+        <div class = "card">
+          <p class = "flag" id = 'Name'>Российская Федерация</p>
+          <p class = "flag" id = 'r1'>Население</p>
+          <p class = "flag" id = 'r2'>146.1 млн.чел.</p>
+          <p class = "flag" id = 'r1'>Площадь</p>
+          <p class = "flag" id = 'r2'>17.1 млн. км<sup>2</sup>.</p>
+        </div>
+      </div>
+      <div class = "flag">
+        <img class = "flag" src = "images/640px-Flag_of_India.svg.png">
+        <div class = "card">
+          <p class = "flag" id = 'Name'>Республика Индия</p>
+          <p class = "flag" id = 'r1'>Население</p>
+          <p class = "flag" id = 'r2'>1 425.7млн.чел.</p>
+          <p class = "flag" id = 'r1'>Площадь</p>
+          <p class = "flag" id = 'r2'>3.3 млн. км<sup>2</sup>.</p>
+        </div>
+      </div>
+      <div class = "flag">
+        <img class = "flag" src = "images/640px-Flag_of_the_People's_Republic_of_China.svg.webp">
+        <div class = "card">
+          <p class = "flag" id = 'Name'>Китайская Народная Республика</p>
+          <p class = "flag" id = 'r1'>Население</p>
+          <p class = "flag" id = 'r2'>1 411.8 млн.чел.</p>
+          <p class = "flag" id = 'r1'>Площадь</p>
+          <p class = "flag" id = 'r2'>9.6 млн. км<sup>2</sup>.</p>
+        </div>
+      </div>
+      <div class = "flag">
+        <img class = "flag" src = "images/640px-Flag_of_South_Africa.svg.webp">
+        <div class = "card">
+          <p class = "flag" id = 'Name'>Южно-Африканская Республика</p>
+          <p class = "flag" id = 'r1'>Население</p>
+          <p class = "flag" id = 'r2'>62.0 млн.чел.</p>
+          <p class = "flag" id = 'r1'>Площадь</p>
+          <p class = "flag" id = 'r2'>1.2 млн. км<sup>2</sup>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    2024
+  </footer>
 </body>
 </html>
-
-
-
-
