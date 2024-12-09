@@ -25,32 +25,88 @@
       font-weight: bold;
       color: white;
     }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1rem;
+      margin: 5px 0 0;
+    }
+
+    /* Верхняя панель навигации */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      background-color: #004080;
+      padding: 10px;
+      gap: 20px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      background-color: #003366;
+    }
+
+    .content {
+      text-align: center;
+      padding: 20px;
+      flex-grow: 1;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #004080;
+      color: white;
+      margin-top: auto;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="navbar">
-      <a href="./index.html">Главная</a>
-      <div class="dropdown">
-        <button class="dropbtn"> <a href = "./developed.html">Освоенные территории</a></button>
-        <div class="dropdown-content">
-          <a href="./developed.html#d_first">Справочная информация</a>
-          <a href="./developed.html#d_second">Литература</a>
-          <a href="./developed.html#download">Скачать данные</a>
-        </div>
-      </div> 
-      <div class="dropdown">
-        <button class="dropbtn"> <a href = "./undeveloped.html">Неосвоенные территории</a></button>
-        <div class="dropdown-content">
-          <a href="./undeveloped.html#undev">Карты неосвоенных территорий</a>
-          <a href="./undeveloped.html#oopt">ООПТ</a>
-          <a href="./undeveloped.html#kmn">Коренные народы</a>
-        </div>
-      </div> 
-      <a href="./map.html">Интерактивная карта</a>
+      <a href="index.html">Главная</a>
+      <a href="population.html">Население</a>
+      <a href="economy.html">Экономика</a>
+      <a href="education.html">Образование</a>
+      <a href="healthcare.html">Здравоохранение</a>
+      <a href="maps.html">Тематические карты</a>
+      <a href="map.html">Карта</a>
+      <a href="about.html">О проекте</a>
     </div>
   </header>
-  <div id="map" style="width: 100%; height: 600px;"></div>
+  <div id="map" style="width: 100%; height: 625px;"></div>
   <script>
     // Инициализация карты
     var map = L.map('map').setView([0, 20], 2);
@@ -119,6 +175,9 @@
 
     L.control.layers(null, overlayLayers, { collapsed: false }).addTo(map);
   </script>
+    <footer>
+      <p>© 2024 Геопортал БРИКС. Все права защищены.</p>
+    </footer>
 </body>
 </html>
 

@@ -1,105 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"> 
-  <title>Главная</title>
+  <meta charset="UTF-8">
   <link rel="icon" href="images/logo.png" type="image">
   <link rel="stylesheet" href="css/style.css">
-  <!--script src="js/nav.js"></script-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Геопортал БРИКС</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1rem;
+      margin: 5px 0 0;
+    }
+
+    /* Верхняя панель навигации */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      background-color: #004080;
+      padding: 10px;
+      gap: 20px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      background-color: #003366;
+    }
+
+    .content {
+      text-align: center;
+      padding: 20px;
+      flex-grow: 1;
+    }
+
+    .hero-image-container {
+      margin: 20px 0;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #004080;
+      color: white;
+      margin-top: auto;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="navbar">
-      <a href="./index.html">Главная</a>
-      <div class="dropdown">
-        <button class="dropbtn"> <a href = "./developed.html">Освоенные территории</a></button>
-        <div class="dropdown-content">
-          <a href="./developed.html#d_first">Справочная информация</a>
-          <a href="./developed.html#d_second">Литература</a>
-          <a href="./developed.html#download">Скачать данные</a>
-        </div>
-      </div> 
-      <div class="dropdown">
-        <button class="dropbtn"> <a href = "./undeveloped.html">Неосвоенные территории</a></button>
-        <div class="dropdown-content">
-          <a href="./undeveloped.html#undev">Карты неосвоенных территорий</a>
-          <a href="./undeveloped.html#oopt">ООПТ</a>
-          <a href="./undeveloped.html#kmn">Коренные народы</a>
-        </div>
-      </div> 
-      <a href="./map.html">Интерактивная карта</a>
-    </div>
+    <h1>Социально-экономические характеристики стран БРИКС</h1>
+    <p>Исследуйте данные, карты и аналитику стран БРИКС</p>
   </header>
-  <div class="content">
-    <div class = "main">
-      <h1>Неосвоенные природные территории Стран БРИКС</h1>
-      <p>Идея проекта принадлежит доктору биологических наук, профессору Тихоокеанского института географии Дальневосточного отделения РАН
-        В.Н.&nbspБочарникову.<br>
-        Ресурс предназначен для знакомства с природой стран БРИКС, не затронутой хозяйственной деятельностью человека. 
-        На этих территориях важны целостные участки неосвоенного пространства, представляющие ценность для сохранения и развития окружающей среды.
-        Проект рассчитан на тех, кто проявляет интерес к странам БРИКС.</p>
-        <p>
-          <b>Разработка ресурса ведётся рабочей группой кафедры картографии и геоинформатики Санкт-Петербургского Государственного Университета:</b><br>
-          Руководитель группы: доцент кафедры картографии и геоинформатики, к.г.н., Сидорина&nbspИ.Е.<br>
-          Разработка картографических материалов: Яковлев&nbspА.С., Шкрябина&nbspМ.А.<br>
-          Разработка ресурса: Яковлев&nbspА.С.
-         </p>
-    </div>
-    <div class = "flags">
-      <div class = "flag">
-        <img class = "flag" src = "images/640px-Flag_of_Brazil.svg.png">
-        <div class = "card">
-          <p class = "flag" id = 'Name'>Федеративная Республика Бразилия</p>
-          <p class = "flag" id = 'r1'>Население</p>
-          <p class = "flag" id = 'r2'>203.1 млн. чел.</p>
-          <p class = "flag" id = 'r1'>Площадь</p>
-          <p class = "flag" id = 'r2'>8.5 млн. км<sup>2</sup>.</p>
-        </div>
-      </div>
-      <div class = "flag">
-        <img class = "flag" src = "images/640px-Flag_of_Russia.svg.webp">
-        <div class = "card">
-          <p class = "flag" id = 'Name'>Российская Федерация</p>
-          <p class = "flag" id = 'r1'>Население</p>
-          <p class = "flag" id = 'r2'>146.1 млн.чел.</p>
-          <p class = "flag" id = 'r1'>Площадь</p>
-          <p class = "flag" id = 'r2'>17.1 млн. км<sup>2</sup>.</p>
-        </div>
-      </div>
-      <div class = "flag">
-        <img class = "flag" src = "images/640px-Flag_of_India.svg.png">
-        <div class = "card">
-          <p class = "flag" id = 'Name'>Республика Индия</p>
-          <p class = "flag" id = 'r1'>Население</p>
-          <p class = "flag" id = 'r2'>1 425.7млн.чел.</p>
-          <p class = "flag" id = 'r1'>Площадь</p>
-          <p class = "flag" id = 'r2'>3.3 млн. км<sup>2</sup>.</p>
-        </div>
-      </div>
-      <div class = "flag">
-        <img class = "flag" src = "images/640px-Flag_of_the_People's_Republic_of_China.svg.webp">
-        <div class = "card">
-          <p class = "flag" id = 'Name'>Китайская Народная Республика</p>
-          <p class = "flag" id = 'r1'>Население</p>
-          <p class = "flag" id = 'r2'>1 411.8 млн.чел.</p>
-          <p class = "flag" id = 'r1'>Площадь</p>
-          <p class = "flag" id = 'r2'>9.6 млн. км<sup>2</sup>.</p>
-        </div>
-      </div>
-      <div class = "flag">
-        <img class = "flag" src = "images/640px-Flag_of_South_Africa.svg.webp">
-        <div class = "card">
-          <p class = "flag" id = 'Name'>Южно-Африканская Республика</p>
-          <p class = "flag" id = 'r1'>Население</p>
-          <p class = "flag" id = 'r2'>62.0 млн.чел.</p>
-          <p class = "flag" id = 'r1'>Площадь</p>
-          <p class = "flag" id = 'r2'>1.2 млн. км<sup>2</sup>.</p>
-        </div>
-      </div>
-    </div>
+
+  <!-- Верхняя панель навигации -->
+  <div class="navbar">
+    <a href="index.html">Главная</a>
+    <a href="population.html">Население</a>
+    <a href="economy.html">Экономика</a>
+    <a href="education.html">Образование</a>
+    <a href="healthcare.html">Здравоохранение</a>
+    <a href="maps.html">Тематические карты</a>
+    <a href="map.html">Карта</a>
+    <a href="about.html">О проекте</a>
   </div>
   <footer>
-    2024
+    <p>© 2024 Геопортал БРИКС. Все права защищены.</p>
   </footer>
 </body>
 </html>
