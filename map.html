@@ -8,6 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 </head>
 <body>
   <header>
@@ -25,7 +27,10 @@
   <div id="map" style="width: 100%; height: 625px;"></div>
   <script>
     // Инициализация карты
-    var map = L.map('map').setView([0, 20], 2);
+    var map = L.map('map', {
+      maxBounds: [[-90, -180], [90, 180]],
+      maxBoundsViscosity: 1.0
+    }).setView([0, 20], 2);
 
     // Подключение базового слоя
     var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -44,6 +49,26 @@
       maxZoom: 20,
       subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
     });
+    // Фиксированные границы стран
+    fetch('./brics_countries.geojson')
+      .then(response => response.json())
+      .then(data => {
+        L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            let popupContent = `<b>${feature.properties.name || 'Без названия'}</b>`;
+            if (feature.properties.population) {
+              popupContent += `<br>Population: ${feature.properties.population}`;
+            }
+            layer.bindPopup(popupContent);
+          },
+          style: {
+            color: 'DarkGrey',
+            weight: 2,
+            fillOpacity: 0.4
+          }
+        }).addTo(map);
+      })
+      .catch(err => console.error(err));
 
     // Определение групп слоев
     var countriesLayer = L.layerGroup();
@@ -107,6 +132,7 @@
     };
 
     L.control.layers(baseLayers, overlayLayers).addTo(map);
+    L.Control.geocoder().addTo(map);
   </script>
   <footer>
     <p>© 2024 Геопортал БРИКС. Все права защищены.</p>
