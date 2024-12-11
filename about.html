@@ -2,10 +2,43 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="images/logo.png" type="image">
   <link rel="stylesheet" href="css/style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Геопортал БРИКС</title>
+  <style>
+    /* Основные стили */
+    .content {
+      max-width: 900px;
+      margin: 150px auto;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+    h1 {
+      font-size: 24px;
+      color: #333;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    p {
+      margin-bottom: 15px;
+      text-align: justify; /* Выравнивание текста по ширине */
+    }
+    b {
+      color: #333;
+    }
+    footer {
+      color: white; 
+      text-align: center; /* Выравнивание текста по центру */
+      position: relative; /* Отменяем возможное смещение */
+      display: flex; /* Используем Flexbox для точного центрирования */
+      justify-content: center; /* Горизонтальное центрирование */
+      align-items: center; /* Вертикальное центрирование */
+
+    }
+  </style>
 </head>
 <body>
 
@@ -20,11 +53,28 @@
     <a href="map.html">Карта</a>
     <a href="about.html">О проекте</a>
   </div>
-  <div class = "article">
-    <h1 id = "d_first">Раздел в разработке</h1>
+
+  <!-- Основной контент -->
+  <div class="content">
+    <h1>Социально-экономические характеристики стран БРИКС</h1>
+    <p>
+      Идея проекта принадлежит доценту кафедры картографии и геоинформатики, к.г.н., Сидориной&nbsp;И.Е.<br>
+      Ресурс предназначен для изучения социально-экономических характеристик стран БРИКС.
+      Он предоставляет данные о населении, экономике, образовании, здравоохранении и освоенных территориях, а также интерактивные карты для анализа.
+      Проект ориентирован на исследователей, студентов, представителей бизнеса и всех, кто интересуется развитием стран БРИКС.
+    </p>
+    <p>
+      <b>Разработка ресурса ведётся рабочей группой кафедры картографии и геоинформатики Санкт-Петербургского Государственного Университета:</b><br>
+      Руководитель группы: доцент кафедры картографии и геоинформатики, к.г.н., Сидорина&nbsp;И.Е.<br>
+      Разработка картографических материалов: Яковлев&nbsp;А.С., Шкрябина&nbsp;М.А.<br>
+      Разработка ресурса: Яковлев&nbsp;А.С.<br>
+    </p>
   </div>
+
+  <!-- Нижний колонтитул -->
   <footer>
     <p>© 2024 Геопортал БРИКС. Все права защищены.</p>
   </footer>
+
 </body>
 </html>
