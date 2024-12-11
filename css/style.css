@@ -81,6 +81,47 @@ footer p {
   font-size: 0.9rem;
 }
 
+/*Стили разделов с текстом*/
+
+.article{
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  background-color: rgb(222, 222, 222);
+  margin:auto;
+  width: 90vw;
+  padding: 5px 20px;
+}
+.article p {
+
+  float: left;
+}
+
+.text{
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+}
+
+img.light{
+  width: 20%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  position: relative;
+  margin: auto;
+  transition: transform 2s;
+}
+
+a.lit{
+  font-size: 16px;
+}
+
+li{
+  padding: 5px;
+  color: #137739;
+}
+
 /*Стили карты*/
 #map{
   position: absolute;
