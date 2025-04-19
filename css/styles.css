@@ -1,0 +1,334 @@
+:root {
+  /* Цвета флагов BRICS */
+  --brazil: #009739;
+  --russia: #0039A6;
+  --india: #FF9933;
+  --china: #EE1C25;
+  --sa: #007749;
+  --text-dark: #2c3e50;
+  --text-light: #ecf0f1;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text-dark);
+}
+
+/* Шапка */
+.brics-header {
+  background: linear-gradient(135deg, 
+      var(--brazil) 0%, 
+      var(--russia) 25%, 
+      var(--india) 50%, 
+      var(--china) 75%, 
+      var(--sa) 100%);
+  padding: 1rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
+/* Улучшение читаемости логотипа */
+.logo {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 3rem;
+  letter-spacing: 3px;
+  margin: 0;
+  color: white;
+  text-shadow: 
+      2px 2px 4px rgba(0, 0, 0, 0.5),
+      -1px -1px 0 rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 2;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+/* Секции */
+.section-brazil {
+  background-color: rgba(0, 151, 57, 0.1);
+  border-left: 5px solid var(--brazil);
+}
+
+.section-russia {
+  background-color: rgba(0, 57, 166, 0.1);
+  border-left: 5px solid var(--russia);
+}
+
+/* Общие стили контейнера */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Карточка с введением */
+.intro-card {
+  background: rgba(255,255,255,0.9);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 3rem;
+}
+/* Стили для быстрого доступа */
+.quick-access {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  color: var(--russia);
+  border-bottom: 2px solid var(--india);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.access-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.access-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s;
+  text-decoration: none;
+  color: var(--text-dark);
+  border-top: 4px solid var(--china);
+}
+
+.access-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Стили для новостей */
+.news-section {
+  background: rgba(255,255,255,0.9);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.news-card {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px dashed #ccc;
+}
+
+.news-date {
+  color: var(--sa);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* Стили футера */
+.brics-footer {
+  background: linear-gradient(135deg, 
+      var(--brazil) 0%, 
+      var(--russia) 25%, 
+      var(--india) 50%, 
+      var(--china) 75%, 
+      var(--sa) 100%);
+  color: white;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-nav {
+  margin-bottom: 2rem;
+}
+
+.nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-nav .nav-link {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s;
+  display: block;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.footer-nav .nav-link:hover {
+  opacity: 0.8;
+}
+
+.footer-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.3);
+}
+
+.copyright p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.mini-logo {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  background: rgba(255,255,255,0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .nav-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-info {
+      flex-direction: column;
+      text-align: center;
+  }
+  
+  .mini-logo {
+      margin-top: 1rem;
+  }
+}
+
+/* Оптимизация для мобильных устройств */
+@media (max-width: 768px) {
+  .map-container {
+      height: calc(100vh - 100px);
+  }
+  
+  .map-controls, .map-legend {
+      padding: 10px;
+      font-size: 0.9rem;
+  }
+  
+  .map-btn {
+      padding: 5px 10px;
+  }
+}
+
+/* Стили для страницы с картой */
+.map-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.map-page .brics-header {
+  flex-shrink: 0;
+}
+
+.map-page .map-main {
+  flex-grow: 1;
+  position: relative;
+}
+
+/* Контейнер карты (адаптируйте под ваш случай) */
+#your-map-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.map-page .brics-footer {
+  flex-shrink: 0;
+}
+html, body {
+  height: auto !important;
+  overflow-y: auto !important;
+}
+#map {
+  height: 600px;
+  max-height: 80vh;
+}
+
+/* Основные стили карты */
+#map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Стили попапа */
+.custom-popup {
+  position: fixed;
+  left: 0;
+  top: 60px;
+  width: 100%;
+  height: calc(100vh - 60px);
+  background: white;
+  z-index: 1000;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.custom-popup.visible {
+  transform: translateY(0);
+}
+
+.close-btn {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background: #FF9340;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  .custom-popup {
+      width: 100vw;
+  }
+  
+  .close-btn {
+      right: 15px;
+  }
+}
+
+@media (min-width: 769px) {
+  .custom-popup {
+      width: 350px;
+      height: calc(100vh - 60px);
+  }
+}

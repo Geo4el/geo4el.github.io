@@ -1,141 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-  <title>Геопортал БРИКС</title>
-  <meta charset="utf-8">
-  <link rel="icon" href="images/logo2.jpg" type="image">
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Интерактивная карта БРИКС</title>
+    <!-- Общие стили -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/map.css">
 </head>
-<body>
-  <header>
-    <div class="navbar">
-      <a href="index.html">Главная</a>
-      <a href="population.html">Население</a>
-      <a href="economy.html">Экономика</a>
-      <a href="education.html">Образование</a>
-      <a href="healthcare.html">Здравоохранение</a>
-      <a href="maps.html">Тематические карты</a>
-      <a href="map.html">Карта</a>
-      <a href="about.html">О проекте</a>
-    </div>
-  </header>
-  <div id="map" style="width: 100%; height: 625px;"></div>
-  <script>
-    // Инициализация карты
-    var map = L.map('map', {
-      maxBounds: [[-90, -180], [90, 180]],
-      maxBoundsViscosity: 1.0
-    }).setView([0, 20], 2);
+<body class="map-page">
+    <!-- Общий хедер -->
+    <header class="brics-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <h1 class="logo">
+                    <span>БРИКС</span>
+                    <small>Интерактивная карта</small>
+                </h1>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="population.html" class="nav-link">Население</a>
+                <a href="economy.html" class="nav-link">Экономика</a>
+                <a href="thematic-maps.html" class="nav-link">Тематические карты</a>
+                <a href="map.html" class="nav-link active">Карта</a>
+                <a href="about.html" class="nav-link">О проекте</a>
+            </nav>
+        </div>
+    </header>
 
-    // Подключение базового слоя
-    var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      attribution: '© OpenStreetMap'
-    }).addTo(map);
+    <!-- Ваш существующий блок с картой -->
+    <main class="map-main">
+        <div id="map"></div>
+        <div id="customPopup" class="custom-popup">
+            <div class="close-btn" onclick="closePopup()">×</div>
+            <div class="country-name" id="popupCountryName"></div>
+            <div class="country-image" id="popupCountryImage"></div>
+            <div class="country-info" id="popupCountryInfo"></div>
+        </div>
+    </main>
 
-    // Google Map Layer
-    var googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-      maxZoom: 18,
-      subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
-    });
+    <!-- Общий футер -->
+    <footer class="brics-footer">
+        <div class="footer-content">
+            <nav class="footer-nav">
+                <ul class="nav-grid">
+                    <li><a href="index.html" class="nav-link">Главная</a></li>
+                    <li><a href="population.html" class="nav-link">Население</a></li>
+                    <li><a href="economy.html" class="nav-link">Экономика</a></li>
+                    <li><a href="thematic-maps.html" class="nav-link">Тематические карты</a></li>
+                    <li><a href="map.html" class="nav-link">Интерактивная карта</a></li>
+                    <li><a href="about.html" class="nav-link">О проекте</a></li>
+                </ul>
+            </nav>
+            <div class="footer-info">
+                <div class="copyright">
+                    <p>© 2025 Социально-экономические характеристики стран БРИКС</p>
+                    <p>Все данные актуальны на 2025 год</p>
+                </div>
+                <div class="footer-brics-logo">
+                    <div class="mini-logo">BRICS</div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-    // Satellite Layer
-    var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-      maxZoom: 20,
-      subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
-    });
-    // Фиксированные границы стран
-    fetch('./brics_countries.geojson')
-      .then(response => response.json())
-      .then(data => {
-        L.geoJSON(data, {
-          onEachFeature: function (feature, layer) {
-            let popupContent = `<b>${feature.properties.name || 'Без названия'}</b>`;
-            if (feature.properties.population) {
-              popupContent += `<br>Population: ${feature.properties.population}`;
-            }
-            layer.bindPopup(popupContent);
-          },
-          style: {
-            color: 'DarkGrey',
-            weight: 2,
-            fillOpacity: 0.4
-          }
-        }).addTo(map);
-      })
-      .catch(err => console.error(err));
-
-    // Определение групп слоев
-    var countriesLayer = L.layerGroup();
-    var capitalsLayer = L.layerGroup();
-
-    // Загрузка и отображение GeoJSON с границами
-    fetch('./brics_countries.geojson')
-      .then(response => response.json())
-      .then(data => {
-        var geojsonLayer = L.geoJSON(data, {
-          onEachFeature: function (feature, layer) {
-            let popupContent = `<b>${feature.properties.name || 'Без названия'}</b>`;
-            if (feature.properties.population) {
-              popupContent += `<br>Population: ${feature.properties.population}`;
-            }
-            layer.bindPopup(popupContent);
-          },
-          style: {
-            color: 'DarkGrey',
-            weight: 2,
-            fillOpacity: 0.4
-          }
-        });
-        countriesLayer.addLayer(geojsonLayer); 
-        countriesLayer.addTo(map);
-      })
-      .catch(err => console.error(err));
-
-    // Загрузка и отображение GeoJSON со столицами
-    fetch('./Capitals.geojson')
-      .then(response => response.json())
-      .then(data => {
-        var geojsonLayer = L.geoJSON(data, {
-          pointToLayer: function (feature, latlng) {
-            const markerHtml = `
-              <div class="custom-marker">
-                <span class="custom-marker-label">${feature.properties.name[0]}</span>
-              </div>`;
-            const icon = L.divIcon({
-              className: 'custom-div-icon',
-              html: markerHtml,
-              iconSize: [24, 24],
-              iconAnchor: [12, 12]
-            });
-            return L.marker(latlng, { icon: icon }).bindPopup(`<b>${feature.properties.name}</b>`);
-          }
-        });
-        capitalsLayer.addLayer(geojsonLayer); // Добавляем слой в группу
-      })
-      .catch(err => console.error(err));
-
-    // Панель управления слоями
-    var baseLayers = {
-      "OpenStreetMap": osm,
-      "Google Streets": googleStreets,
-      "Google Satellite": googleSat
-    };
-
-    var overlayLayers = {
-      "Столицы": capitalsLayer
-    };
-
-    L.control.layers(baseLayers, overlayLayers).addTo(map);
-    L.Control.geocoder().addTo(map);
-  </script>
-  <footer>
-    <p>© 2024 Геопортал БРИКС. Все права защищены.</p>
-  </footer>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/map.js"></script>
 </body>
 </html>
