@@ -1,0 +1,232 @@
+/* Основные стили */
+.population-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+}
+
+.population-main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 120px auto 40px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.page-title {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2.5rem;
+}
+
+/* Сетка стран */
+.population-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* Карточка страны */
+.country-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.country-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.country-name {
+    background: linear-gradient(135deg, #009739, #007749);
+    color: white;
+    padding: 15px;
+    margin: 0;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.8rem;
+}
+
+.country-info {
+    padding: 20px;
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.country-info p {
+    margin: 10px 0;
+}
+
+/* Вкладки карт */
+.map-tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    padding: 0 20px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.map-tab {
+    background: none;
+    border: none;
+    padding: 8px 15px;
+    margin-right: 5px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #555;
+    border-radius: 4px 4px 0 0;
+    transition: all 0.3s;
+    margin-bottom: 5px;
+}
+
+.map-tab.active {
+    background: #f0f0f0;
+    color: #009739;
+    font-weight: 500;
+    border-bottom: 2px solid #009739;
+}
+
+.map-tab:hover:not(.active) {
+    background: #f9f9f9;
+}
+
+/* Контейнер карт */
+.map-container {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.map-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.map-preview.active {
+    display: block;
+}
+
+.map-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.map-preview:hover .map-thumb {
+    transform: scale(1.03);
+}
+
+.map-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Модальное окно */
+.map-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    overflow: auto;
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    display: block;
+    max-width: 90%;
+    max-height: 80vh;
+    margin: 5% auto;
+    border: 2px solid white;
+    border-radius: 5px;
+    animation: zoom 0.3s;
+}
+
+#modalCaption {
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #FF9340;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-modal:hover {
+    color: #ffaa60;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes zoom {
+    from {transform: scale(0.5);}
+    to {transform: scale(1);}
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .population-main {
+        margin-top: 80px;
+        padding: 15px;
+    }
+    
+    .population-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .map-container {
+        height: 200px;
+    }
+    
+    .modal-content {
+        max-width: 95%;
+        max-height: 70vh;
+        margin: 15% auto;
+    }
+    
+    .close-modal {
+        top: 15px;
+        right: 20px;
+        font-size: 30px;
+    }
+    
+    .map-tab {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+}

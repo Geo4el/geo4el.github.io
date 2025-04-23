@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Демография стран БРИКС</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/population.css">
+</head>
+<body class="population-page">
+    <header class="brics-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <h1 class="logo">
+                    <span>БРИКС</span>
+                    <small>Демографические показатели</small>
+                </h1>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="population.html" class="nav-link active">Демография</a>
+                <a href="economy.html" class="nav-link">Экономика</a>
+                <a href="thematic-maps.html" class="nav-link">Тематические карты</a>
+                <a href="map.html" class="nav-link">Интерактивная карта</a>
+                <a href="about.html" class="nav-link">О проекте</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="population-main">
+      
+        <section class="population-grid">
+            <!-- Блок Бразилии -->
+            <div class="country-card">
+                <h2 class="country-name">Бразилия</h2>
+                <div class="country-info">
+                    <p><strong>Население:</strong> 214 млн</p>
+                    <p><strong>Городское население:</strong> 87%</p>
+                </div>
+                
+                <div class="map-tabs">
+                    <button class="map-tab active" onclick="switchMap(this, 'brazil-population')">Население</button>
+                    <button class="map-tab" onclick="switchMap(this, 'brazil-density')">Возрастная структура населения</button>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-preview active" data-map="brazil-population" onclick="openMapModal(this, 'brazil-population')">
+                        <img src="img\maps\Бразилия-население — копия.png" alt="Население Бразилии" class="map-thumb">
+                        <div class="map-overlay">Нажмите для увеличения</div>
+                    </div>
+                    
+                    <div class="map-preview" data-map="brazil-density" onclick="openMapModal(this, 'brazil-density')">
+                        <img src="img\maps\Бразилия-возрастная структура населения — копия.png" alt="Возрастная структура населения" class="map-thumb">
+                        <div class="map-overlay">Нажмите для увеличения</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Блок России -->
+            <div class="country-card">
+                <h2 class="country-name">Россия</h2>
+                <div class="country-info">
+                    <p><strong>Население:</strong> 146 млн</p>
+                    <p><strong>Городское население:</strong> 75%</p>
+                </div>
+                
+                <div class="map-tabs">
+                    <button class="map-tab active" onclick="switchMap(this, 'russia-population')">Население</button>
+                    <button class="map-tab" onclick="switchMap(this, 'russia-density')">Плотность</button>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-preview active" data-map="russia-population">
+                        <img src="img/maps/russia-population-thumb.png" alt="Население России" class="map-thumb">
+                        <div class="map-overlay">Нажмите для увеличения</div>
+                    </div>
+                    
+                    <div class="map-preview" data-map="russia-density">
+                        <img src="img/maps/russia-density-thumb.png" alt="Плотность населения России" class="map-thumb">
+                        <div class="map-overlay">Нажмите для увеличения</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Модальное окно -->
+    <div id="mapModal" class="map-modal">
+        <span class="close-modal" onclick="closeMapModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="modalCaption"></div>
+    </div>
+
+    <footer class="brics-footer">
+        <div class="footer-content">
+            <!-- Дублирование навигации -->
+            <nav class="footer-nav">
+                <ul class="nav-grid">
+                    <li><a href="index.html" class="nav-link">Главная</a></li>
+                    <li><a href="population.html" class="nav-link">Демография</a></li>
+                    <li><a href="economy.html" class="nav-link">Экономика</a></li>
+                    <li><a href="thematic-maps.html" class="nav-link">Тематические карты</a></li>
+                    <li><a href="map.html" class="nav-link">Интерактивная карта</a></li>
+                    <li><a href="about.html" class="nav-link">О проекте</a></li>
+                </ul>
+            </nav>
+    
+            <!-- Информационный блок -->
+            <div class="footer-info">
+                <div class="copyright">
+                    <p>© 2025 Социально-экономические характеристики стран БРИКС</p>
+                    <p>Все данные актуальны на 2025 год</p>
+                </div>
+                
+                <div class="footer-brics-logo">
+                    <div class="mini-logo">BRICS</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/population.js"></script>
+</body>
+</html>
