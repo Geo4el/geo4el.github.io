@@ -57,27 +57,27 @@
                 </div>
             </div>
 
-            <!-- Блок России -->
+            <!-- Блок Индии -->
             <div class="country-card">
-                <h2 class="country-name">Россия</h2>
+                <h2 class="country-name">Индия</h2>
                 <div class="country-info">
-                    <p><strong>Население:</strong> 146 млн</p>
-                    <p><strong>Городское население:</strong> 75%</p>
+                    <p><strong>Население:</strong> 1,438 млн</p>
+                    <p><strong>Городское население:</strong> 35,4%</p>
                 </div>
                 
                 <div class="map-tabs">
-                    <button class="map-tab active" onclick="switchMap(this, 'russia-population')">Население</button>
-                    <button class="map-tab" onclick="switchMap(this, 'russia-density')">Плотность</button>
+                    <button class="map-tab active" onclick="switchMap(this, 'india-population')">Население</button>
+                    <button class="map-tab" onclick="switchMap(this, 'india-density')">Возрастная структура населения</button>
                 </div>
                 
                 <div class="map-container">
-                    <div class="map-preview active" data-map="russia-population">
-                        <img src="img/maps/russia-population-thumb.png" alt="Население России" class="map-thumb">
+                    <div class="map-preview active" data-map="india-population" onclick="openMapModal(this, 'brazil-population')">
+                        <img src="img\maps\Индия-население — копия.png" alt="Население Бразилии" class="map-thumb">
                         <div class="map-overlay">Нажмите для увеличения</div>
                     </div>
                     
-                    <div class="map-preview" data-map="russia-density">
-                        <img src="img/maps/russia-density-thumb.png" alt="Плотность населения России" class="map-thumb">
+                    <div class="map-preview" data-map="india-density" onclick="openMapModal(this, 'brazil-density')">
+                        <img src="img\maps\Индия-возрастная структура населения — копия.png" alt="Возрастная структура населения" class="map-thumb">
                         <div class="map-overlay">Нажмите для увеличения</div>
                     </div>
                 </div>
