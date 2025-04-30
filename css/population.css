@@ -1,34 +1,53 @@
-/* Основные стили */
-.population-page {
+:root {
+    --brics-green: #009739;
+    --brics-dark-green: #007749;
+    --text-dark: #2c3e50;
+    --text-light: #ecf0f1;
+    --shadow: 0 3px 10px rgba(0,0,0,0.1);
+    --shadow-hover: 0 5px 15px rgba(0,0,0,0.2);
+    --transition: all 0.3s ease;
+}
+
+/* Навигация по странам */
+.country-nav {
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #f9f9f9;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 15px;
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 80px;
+    z-index: 100;
+    margin-bottom: 30px;
 }
 
-.population-main {
-    flex: 1;
-    max-width: 1200px;
-    margin: 120px auto 40px;
-    padding: 20px;
-    width: 100%;
-    box-sizing: border-box;
+.country-nav__link {
+    transition: transform 0.2s;
 }
 
-.page-title {
-    color: #2c3e50;
-    text-align: center;
-    margin-bottom: 40px;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 2.5rem;
+.country-nav__link:hover {
+    transform: translateY(-3px);
 }
 
-/* Сетка стран */
+.country-nav__flag {
+    width: 40px;
+    height: 28px;
+    object-fit: cover;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Сетка карточек (2 колонки) */
 .population-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    padding: 20px 0;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 /* Карточка страны */
@@ -36,22 +55,36 @@
     background: white;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
 }
 
 .country-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: var(--shadow-hover);
 }
 
-.country-name {
-    background: linear-gradient(135deg, #009739, #007749);
-    color: white;
+.country-card__header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
     padding: 15px;
+    background: linear-gradient(to right, #f9f9f9, #fff);
+}
+
+.country-card__flag {
+    width: 50px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.country-card__title {
     margin: 0;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    font-family: 'Bebas Neue', cursive; 
 }
 
 .country-info {
@@ -103,6 +136,8 @@
     position: relative;
     height: 250px;
     overflow: hidden;
+    background: #f5f5f5;
+    margin: 15px;
 }
 
 .map-preview {
@@ -121,13 +156,10 @@
 .map-thumb {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
-.map-preview:hover .map-thumb {
-    transform: scale(1.03);
-}
 
 .map-overlay {
     position: absolute;
@@ -139,7 +171,6 @@
     padding: 10px;
     text-align: center;
     font-weight: 500;
-    font-family: 'Montserrat', sans-serif;
 }
 
 /* Модальное окно */
@@ -230,3 +261,102 @@
         font-size: 13px;
     }
 }
+
+/* Стили для секции мировых карт */
+.world-maps-section {
+    max-width: 1400px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-family: 'Bebas Neue', cursive;
+  }
+  
+  .world-maps-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  .world-map-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  
+  .world-map-card h3 {
+    padding: 15px 20px;
+    margin: 0;
+    background: #f5f5f5;
+    font-size: 1.3rem;
+  }
+  
+  .world-map-card .map-container {
+    height: 400px;
+    position: relative;
+  }
+  
+  .world-map {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Адаптация для мобильных */
+  @media (max-width: 768px) {
+    .world-maps-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .world-map-card .map-container {
+      height: 300px;
+    }
+  }
+
+  /* Стили для разделителя секций */
+.section-divider {
+    position: relative;
+    margin: 50px auto;
+    max-width: 1400px;
+    text-align: center;
+  }
+  
+  .section-divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--brics-green), transparent);
+    z-index: -1;
+  }
+  
+  .divider-text {
+    display: inline-block;
+    background: white;
+    padding: 0 20px;
+    font-size: 1.5rem;
+    color: var(--brics-green);
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 1px;
+    position: relative;
+  }
+  
+  /* Адаптация для мобильных */
+  @media (max-width: 768px) {
+    .section-divider {
+      margin: 30px auto;
+    }
+    
+    .divider-text {
+      font-size: 1.2rem;
+      padding: 0 15px;
+    }
+  }

@@ -27,61 +27,207 @@
             </nav>
         </div>
     </header>
+    
+    <div class="country-nav">
+        <a href="#brazil" class="country-nav__link">
+          <img src="img/flags/Brazil.svg.png" alt="Бразилия" class="country-nav__flag">
+        </a>
+        <a href="#russia" class="country-nav__link">
+            <img src="img/flags/Russia.svg.webp" alt="Россия" class="country-nav__flag">
+        </a>
+        <a href="#india" class="country-nav__link">
+            <img src="img/flags/India.svg.png" alt="Индия" class="country-nav__flag">
+        </a>
+        <a href="#china" class="country-nav__link">
+            <img src="img\flags\China.svg.webp" alt="Китай" class="country-nav__flag">
+        </a>
+        <a href="#SAR" class="country-nav__link">
+            <img src="img\flags\South_Africa.svg.webp" alt="ЮАР" class="country-nav__flag">
+        </a>
+        <!-- Добавьте остальные страны по аналогии -->
+    </div>
 
     <main class="population-main">
-      
+
+
+        <section class="world-maps-section">
+            <h2 class="section-title">Мировые демографические показатели БРИКС</h2>
+            
+            <div class="world-maps-container">
+        
+            <div class="world-map-card">
+                <h3>Население стран БРИКС</h3>
+                <div class="map-container" onclick="openMapModal(this, 'world-population')">
+                <img src="img\maps\1.png" alt="Население стран БРИКС" class="world-map">
+                <div class="map-overlay">Нажмите для увеличения</div>
+                </div>
+            </div>
+            
+            <div class="world-map-card">
+                <h3>Возрастная структура населения БРИКС</h3>
+                <div class="map-container" onclick="openMapModal(this, 'world-population')">
+                <img src="img\maps\2.png" alt="Возрастная структура населения БРИКС" class="world-map">
+                <div class="map-overlay">Нажмите для увеличения</div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <div class="section-divider">
+            <span class="divider-text">Демография стран БРИКС</span>
+        </div>
+
         <section class="population-grid">
             <!-- Блок Бразилии -->
-            <div class="country-card">
-                <h2 class="country-name">Бразилия</h2>
+            <article id="brazil" class="country-card">
+                <div class="country-card__header">
+                    <img src="img/flags/Brazil.svg.png" alt="Флаг Бразилии" class="country-card__flag">
+                    <h3 class="country-card__title">Бразилия</h3>
+                </div>
                 <div class="country-info">
-                    <p><strong>Население:</strong> 214 млн</p>
-                    <p><strong>Городское население:</strong> 87%</p>
+                    <p><strong>Население:</strong> 220 млн</p>
+                    <p><strong>Уровень урбанизации:</strong> 87%</p>
+                    <p><strong>Средний возраст:</strong> 27 лет</p>
                 </div>
                 
                 <div class="map-tabs">
                     <button class="map-tab active" onclick="switchMap(this, 'brazil-population')">Население</button>
-                    <button class="map-tab" onclick="switchMap(this, 'brazil-density')">Возрастная структура населения</button>
+                    <button class="map-tab" onclick="switchMap(this, 'brazil-density')">Возрастная структура</button>
                 </div>
                 
                 <div class="map-container">
                     <div class="map-preview active" data-map="brazil-population" onclick="openMapModal(this, 'brazil-population')">
                         <img src="img\maps\Бразилия-население — копия.png" alt="Население Бразилии" class="map-thumb">
-                        <div class="map-overlay">Нажмите для увеличения</div>
+                        <div class="map-overlay">Нажмите для увеличения</div>>
                     </div>
                     
-                    <div class="map-preview" data-map="brazil-density" onclick="openMapModal(this, 'brazil-density')">
-                        <img src="img\maps\Бразилия-возрастная структура населения — копия.png" alt="Возрастная структура населения" class="map-thumb">
+                    <div class="map-preview" data-map="brazil-density" onclick="openMapModal(this, 'brazil-population')">
+                        <img src="img\maps\Бразилия-возрастная структура населения.png" alt="Возрастная структура населения" class="map-thumb">
                         <div class="map-overlay">Нажмите для увеличения</div>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <!-- Блок Индии -->
-            <div class="country-card">
-                <h2 class="country-name">Индия</h2>
+            <!-- Блок России -->
+            <article id="russia" class="country-card">
+                <div class="country-card__header">
+                    <img src="img/flags/Russia.svg.webp" alt="Флаг России" class="country-card__flag">
+                    <h3 class="country-card__title">Россия</h3>
+                </div>
                 <div class="country-info">
-                    <p><strong>Население:</strong> 1,438 млн</p>
-                    <p><strong>Городское население:</strong> 35,4%</p>
+                    <p><strong>Население:</strong> 146 млн</p>
+                    <p><strong>Уровень урбанизации:</strong> 74%</p>
+                    <p><strong>Средний возраст:</strong> 40 лет</p>
+                </div>
+                
+                <div class="map-tabs">
+                    <button class="map-tab active" onclick="switchMap(this, 'russia-population')">Население</button>
+                    <button class="map-tab" onclick="switchMap(this, 'russia-density')">Возрастная структура</button>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-preview active" data-map="russia-population" onclick="openMapModal(this, 'russia-population')">
+                        <img src="img/maps/Россия-население.png" alt="Население России" class="map-thumb">
+                        <div class="map-overlay">Нажмите для увеличения</div>
+                    </div>
+                    
+                    <div class="map-preview" data-map="russia-density" onclick="openMapModal(this, 'russia-density')"> 
+                        <img src="img/maps/Россия-возрастная-структура.png" alt="Возрастная структура населения" class="map-thumb">
+                        <div class="map-overlay">Нажмите для увеличения</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Блок Индия -->
+            <article id="india" class="country-card">
+                <div class="country-card__header">
+                    <img src="img\flags\India.svg.png" alt="Флаг Индии" class="country-card__flag">
+                    <h3 class="country-card__title">Индия</h3>
+                </div>
+                <div class="country-info">
+                    <p><strong>Население:</strong> 1,438  млн</p>
+                    <p><strong>Уровень урбанизации:</strong> 35%</p>
+                    <p><strong>Средний возраст:</strong> 33 года</p>
                 </div>
                 
                 <div class="map-tabs">
                     <button class="map-tab active" onclick="switchMap(this, 'india-population')">Население</button>
-                    <button class="map-tab" onclick="switchMap(this, 'india-density')">Возрастная структура населения</button>
+                    <button class="map-tab" onclick="switchMap(this, 'india-density')">Возрастная структура</button>
                 </div>
                 
                 <div class="map-container">
-                    <div class="map-preview active" data-map="india-population" onclick="openMapModal(this, 'brazil-population')">
-                        <img src="img\maps\Индия-население — копия.png" alt="Население Бразилии" class="map-thumb">
+                    <div class="map-preview active" data-map="india-population" onclick="openMapModal(this, 'india-density')">
+                        <img src="img\maps\Индия-население.png" alt="Население России" class="map-thumb">
                         <div class="map-overlay">Нажмите для увеличения</div>
                     </div>
                     
-                    <div class="map-preview" data-map="india-density" onclick="openMapModal(this, 'brazil-density')">
-                        <img src="img\maps\Индия-возрастная структура населения — копия.png" alt="Возрастная структура населения" class="map-thumb">
+                    <div class="map-preview" data-map="india-density" onclick="openMapModal(this, 'india-density')">
+                        <img src="img\maps\Индия-возрастная структура населения.png" alt="Возрастная структура населения" class="map-thumb">
                         <div class="map-overlay">Нажмите для увеличения</div>
                     </div>
                 </div>
-            </div>
+
+            </article>
+
+            <!-- Китай -->
+            <article id="china" class="country-card">
+                <div class="country-card__header">
+                    <img src="img\flags\China.svg.webp" alt="Флаг Китая" class="country-card__flag">
+                    <h3 class="country-card__title">Китай</h3>
+                </div>
+                <div class="country-info">
+                    <p><strong>Население:</strong> 1,409  млн</p>
+                    <p><strong>Уровень урбанизации:</strong> 61%</p>
+                    <p><strong>Средний возраст:</strong> 33 года </p>
+                </div>
+                
+                <div class="map-tabs">
+                    <button class="map-tab active" onclick="switchMap(this, 'china-population')">Население</button>
+                    <button class="map-tab" onclick="switchMap(this, 'china-density')">Возрастная структура</button>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-preview active" data-map="china-population" onclick="openMapModal(this, 'china-density')">
+                        <img src="img\maps\Китай.png" alt="Население Китая" class="map-thumb">
+                        <div class="map-overlay">Нажмите для увеличения</div>
+                    </div>
+                    
+                    <div class="map-preview" data-map="china-density" onclick="openMapModal(this, 'china-density')">
+                        <img src="img\maps\Китай 2.png" alt="Возрастная структура населения" class="map-thumb">
+                        <div class="map-overlay">Нажмите для увеличения</div>
+                    </div>
+                </div>
+            </article>
+
+             <!-- ЮАР -->
+             <article id="SAR" class="country-card">
+                <div class="country-card__header">
+                    <img src="img\flags\South_Africa.svg.webp" alt="Флаг ЮАР" class="country-card__flag">
+                    <h3 class="country-card__title">Южно-Африканская Республика</h3>
+                </div>
+                <div class="country-info">
+                    <p><strong>Население:</strong> 60  млн</p>
+                    <p><strong>Уровень урбанизации:</strong> 67%</p>
+                    <p><strong>Средний возраст:</strong> 28 лет </p>
+                </div>
+                
+                <div class="map-tabs">
+                    <button class="map-tab active" onclick="switchMap(this, 'SAR-population')">Население</button>
+                    <button class="map-tab" onclick="switchMap(this, 'SAR-density')">Возрастная структура</button>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-preview active" data-map="SAR-population" onclick="openMapModal(this, 'SAR-density')">
+                        <img src="img\maps\ЮАР_2.png" alt="Население ЮАР" class="SAR-thumb">
+                        <div class="map-overlay">Нажмите для увеличения</div>
+                    </div>
+                    
+                    <div class="map-preview" data-map="SAR-density" onclick="openMapModal(this, 'SAR-density')">
+                        <img src="img\maps\ЮАР_1.png" alt="Возрастная структура населения" class="map-thumb">
+                        <div class="map-overlay">Нажмите для увеличения</div>
+                    </div>
+                </div>
+            </article>
         </section>
     </main>
 
@@ -94,7 +240,7 @@
 
     <footer class="brics-footer">
         <div class="footer-content">
-            <!-- Дублирование навигации -->
+
             <nav class="footer-nav">
                 <ul class="nav-grid">
                     <li><a href="index.html" class="nav-link">Главная</a></li>
@@ -106,7 +252,7 @@
                 </ul>
             </nav>
     
-            <!-- Информационный блок -->
+
             <div class="footer-info">
                 <div class="copyright">
                     <p>© 2025 Социально-экономические характеристики стран БРИКС</p>
