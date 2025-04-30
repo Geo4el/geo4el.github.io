@@ -53,6 +53,12 @@
         <a href="#UAE" class="country-nav__link">
             <img src="img\flags\ОАЭ.svg" alt="ОАЭ" class="country-nav__flag">
         </a>
+        <a href="#Ethiopia" class="country-nav__link">
+            <img src="img\flags\Эфиопия.svg" alt="Эфиопия" class="country-nav__flag">
+        </a>
+        <a href="#Indonesia" class="country-nav__link">
+            <img src="img\flags\Индонезия.svg" alt="Индонезия" class="country-nav__flag">
+        </a>
     </div>
 
     <main class="population-main">
@@ -276,7 +282,7 @@
                 <div class="country-info">
                     <p><strong>Население:</strong> 87  млн</p>
                     <p><strong>Уровень урбанизации:</strong> 75%</p>
-                    <p><strong>Средний возраст:</strong> 32 лет </p>
+                    <p><strong>Средний возраст:</strong> 32 года </p>
                 </div>
                 
                 <div class="map-tabs">
@@ -306,7 +312,7 @@
                 <div class="country-info">
                     <p><strong>Население:</strong> 10  млн</p>
                     <p><strong>Уровень урбанизации:</strong> 88%</p>
-                    <p><strong>Средний возраст:</strong> 34 лет </p>
+                    <p><strong>Средний возраст:</strong> 34 года </p>
                 </div>
                 
                 <div class="map-tabs">
@@ -326,10 +332,70 @@
                     </div>
                 </div>
             </article>
+
+            <!-- Эфиопия -->
+            <article id="Ethiopia" class="country-card">
+                <div class="country-card__header">
+                    <img src="img\flags\Эфиопия.svg" alt="Флаг Эфиопии" class="country-card__flag">
+                    <h3 class="country-card__title">Эфиопия</h3>
+                </div>
+                <div class="country-info">
+                    <p><strong>Население:</strong> 125  млн</p>
+                    <p><strong>Уровень урбанизации:</strong> 21%</p>
+                    <p><strong>Средний возраст:</strong> 19 лет </p>
+                </div>
+                
+                <div class="map-tabs">
+                    <button class="map-tab active" onclick="switchMap(this, 'Ethiopia-population')">Население</button>
+                    <button class="map-tab" onclick="switchMap(this, 'Ethiopia-density')">Возрастная структура</button>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-preview active" data-map="Ethiopia-population" onclick="openMapModal(this, 'Ethiopia-population')">
+                        <img src="img\maps\Эфиопия 2.png" alt="Население Эфиопии" class="map-thumb">
+                        <div class="map-overlay">Нажмите для увеличения</div>
+                    </div>
+                    
+                    <div class="map-preview" data-map="Ethiopia-density" onclick="openMapModal(this, 'Ethiopia-density')">
+                        <img src="img\maps\Эфиопия.png" alt="Возрастная структура населения" class="map-thumb">
+                        <div class="map-overlay">Нажмите для увеличения</div>
+                    </div>
+                </div>
+            </article>
+
+             <!-- Индонезия -->
+            <article id="Indonesia" class="country-card">
+                <div class="country-card__header">
+                    <img src="img\flags\Индонезия.svg" alt="Флаг Индонезии" class="country-card__flag">
+                    <h3 class="country-card__title">Индонезия</h3>
+                </div>
+                <div class="country-info">
+                    <p><strong>Население:</strong> 125  млн</p>
+                    <p><strong>Уровень урбанизации:</strong> 21%</p>
+                    <p><strong>Средний возраст:</strong> 19 лет </p>
+                </div>
+                
+                <div class="map-tabs">
+                    <button class="map-tab active" onclick="switchMap(this, 'Indonesia-population')">Население</button>
+                    <button class="map-tab" onclick="switchMap(this, 'Indonesia-density')">Возрастная структура</button>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-preview active" data-map="Indonesia-population" onclick="openMapModal(this, 'Indonesia-population')">
+                        <img src="img\maps\Индонезия_4.png" alt="Население Эфиопии" class="map-thumb">
+                        <div class="map-overlay">Нажмите для увеличения</div>
+                    </div>
+                    
+                    <div class="map-preview" data-map="Indonesia-density" onclick="openMapModal(this, 'Indonesia-density')">
+                        <img src="img\maps\Индонезия_3.png" alt="Возрастная структура населения" class="map-thumb">
+                        <div class="map-overlay">Нажмите для увеличения</div>
+                    </div>
+                </div>
+            </article>
         </section>
     </main>
 
-    <!-- Модальное окно -->
+    
     <div id="mapModal" class="map-modal">
         <span class="close-modal" onclick="closeMapModal()">&times;</span>
         <img class="modal-content" id="modalImage">
