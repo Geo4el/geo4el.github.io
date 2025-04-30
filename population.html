@@ -50,6 +50,9 @@
         <a href="#Iran" class="country-nav__link">
             <img src="img\flags\ir.svg" alt="Иран" class="country-nav__flag">
         </a>
+        <a href="#UAE" class="country-nav__link">
+            <img src="img\flags\ОАЭ.svg" alt="ОАЭ" class="country-nav__flag">
+        </a>
     </div>
 
     <main class="population-main">
@@ -132,12 +135,12 @@
                 
                 <div class="map-container">
                     <div class="map-preview active" data-map="russia-population" onclick="openMapModal(this, 'russia-population')">
-                        <img src="img/maps/Россия-население.png" alt="Население России" class="map-thumb">
+                        <img src="img\maps\Россия_население.jpg" alt="Население России" class="map-thumb">
                         <div class="map-overlay">Нажмите для увеличения</div>
                     </div>
                     
                     <div class="map-preview" data-map="russia-density" onclick="openMapModal(this, 'russia-density')"> 
-                        <img src="img/maps/Россия-возрастная-структура.png" alt="Возрастная структура населения" class="map-thumb">
+                        <img src="img\maps\Россия_возраст.jpg" alt="Возрастная структура населения" class="map-thumb">
                         <div class="map-overlay">Нажмите для увеличения</div>
                     </div>
                 </div>
@@ -282,13 +285,43 @@
                 </div>
                 
                 <div class="map-container">
-                    <div class="map-preview active" data-map="Egypt-population" onclick="openMapModal(this, 'Iran-population')">
+                    <div class="map-preview active" data-map="Iran-population" onclick="openMapModal(this, 'Iran-population')">
                         <img src="img\maps\Иран.png" alt="Население Ирана" class="map-thumb">
                         <div class="map-overlay">Нажмите для увеличения</div>
                     </div>
                     
-                    <div class="map-preview" data-map="Egypt-density" onclick="openMapModal(this, 'Iran-density')">
+                    <div class="map-preview" data-map="Iran-density" onclick="openMapModal(this, 'Iran-density')">
                         <img src="img\maps\Иран_2.png" alt="Возрастная структура населения" class="map-thumb">
+                        <div class="map-overlay">Нажмите для увеличения</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ОАЭ -->
+            <article id="UAE" class="country-card">
+                <div class="country-card__header">
+                    <img src="img\flags\ОАЭ.svg" alt="Флаг ОАЭ" class="country-card__flag">
+                    <h3 class="country-card__title">Объединённые Арабские Эмираты</h3>
+                </div>
+                <div class="country-info">
+                    <p><strong>Население:</strong> 10  млн</p>
+                    <p><strong>Уровень урбанизации:</strong> 88%</p>
+                    <p><strong>Средний возраст:</strong> 34 лет </p>
+                </div>
+                
+                <div class="map-tabs">
+                    <button class="map-tab active" onclick="switchMap(this, 'UAE-population')">Население</button>
+                    <button class="map-tab" onclick="switchMap(this, 'UAE-density')">Возрастная структура</button>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-preview active" data-map="UAE-population" onclick="openMapModal(this, 'UAE-population')">
+                        <img src="img\maps\Emirates.png" alt="Население ОАЭ" class="map-thumb">
+                        <div class="map-overlay">Нажмите для увеличения</div>
+                    </div>
+                    
+                    <div class="map-preview" data-map="UAE-density" onclick="openMapModal(this, 'UAE-density')">
+                        <img src="img\maps\ОАЭ_возраст.jpg" alt="Возрастная структура населения" class="map-thumb">
                         <div class="map-overlay">Нажмите для увеличения</div>
                     </div>
                 </div>
