@@ -44,7 +44,12 @@
         <a href="#SAR" class="country-nav__link">
             <img src="img\flags\South_Africa.svg.webp" alt="ЮАР" class="country-nav__flag">
         </a>
-        <!-- Добавьте остальные страны по аналогии -->
+        <a href="#Egypt" class="country-nav__link">
+            <img src="img\flags\Egypt.svg" alt="Египет" class="country-nav__flag">
+        </a>
+        <a href="#Iran" class="country-nav__link">
+            <img src="img\flags\ir.svg" alt="Иран" class="country-nav__flag">
+        </a>
     </div>
 
     <main class="population-main">
@@ -157,7 +162,7 @@
                 
                 <div class="map-container">
                     <div class="map-preview active" data-map="india-population" onclick="openMapModal(this, 'india-density')">
-                        <img src="img\maps\Индия-население.png" alt="Население России" class="map-thumb">
+                        <img src="img\maps\Индия-население.png" alt="Население Индии" class="map-thumb">
                         <div class="map-overlay">Нажмите для увеличения</div>
                     </div>
                     
@@ -188,12 +193,12 @@
                 
                 <div class="map-container">
                     <div class="map-preview active" data-map="china-population" onclick="openMapModal(this, 'china-density')">
-                        <img src="img\maps\Китай.png" alt="Население Китая" class="map-thumb">
+                        <img src="img\maps\Китай 2.png" alt="Население Китая" class="map-thumb">
                         <div class="map-overlay">Нажмите для увеличения</div>
                     </div>
                     
                     <div class="map-preview" data-map="china-density" onclick="openMapModal(this, 'china-density')">
-                        <img src="img\maps\Китай 2.png" alt="Возрастная структура населения" class="map-thumb">
+                        <img src="img\maps\Китай.png" alt="Возрастная структура населения" class="map-thumb">
                         <div class="map-overlay">Нажмите для увеличения</div>
                     </div>
                 </div>
@@ -218,12 +223,72 @@
                 
                 <div class="map-container">
                     <div class="map-preview active" data-map="SAR-population" onclick="openMapModal(this, 'SAR-density')">
-                        <img src="img\maps\ЮАР_2.png" alt="Население ЮАР" class="SAR-thumb">
+                        <img src="img\maps\ЮАР_2.png" alt="Население ЮАР" class="map-thumb">
                         <div class="map-overlay">Нажмите для увеличения</div>
                     </div>
                     
                     <div class="map-preview" data-map="SAR-density" onclick="openMapModal(this, 'SAR-density')">
                         <img src="img\maps\ЮАР_1.png" alt="Возрастная структура населения" class="map-thumb">
+                        <div class="map-overlay">Нажмите для увеличения</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Египет -->
+            <article id="Egypt" class="country-card">
+                <div class="country-card__header">
+                    <img src="img\flags\Egypt.svg" alt="Флаг Египта" class="country-card__flag">
+                    <h3 class="country-card__title">Египет</h3>
+                </div>
+                <div class="country-info">
+                    <p><strong>Население:</strong> 110  млн</p>
+                    <p><strong>Уровень урбанизации:</strong> 43%</p>
+                    <p><strong>Средний возраст:</strong> 25 лет </p>
+                </div>
+                
+                <div class="map-tabs">
+                    <button class="map-tab active" onclick="switchMap(this, 'Egypt-population')">Население</button>
+                    <button class="map-tab" onclick="switchMap(this, 'Egypt-density')">Возрастная структура</button>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-preview active" data-map="Egypt-population" onclick="openMapModal(this, 'Egypt-population')">
+                        <img src="img\maps\Египет.png" alt="Население Египта" class="map-thumb">
+                        <div class="map-overlay">Нажмите для увеличения</div>
+                    </div>
+                    
+                    <div class="map-preview" data-map="Egypt-density" onclick="openMapModal(this, 'Egypt-density')">
+                        <img src="img\maps\Египет_2.png" alt="Возрастная структура населения" class="map-thumb">
+                        <div class="map-overlay">Нажмите для увеличения</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Иран -->
+            <article id="Iran" class="country-card">
+                <div class="country-card__header">
+                    <img src="img\flags\ir.svg" alt="Флаг Ирана" class="country-card__flag">
+                    <h3 class="country-card__title">Иран</h3>
+                </div>
+                <div class="country-info">
+                    <p><strong>Население:</strong> 87  млн</p>
+                    <p><strong>Уровень урбанизации:</strong> 75%</p>
+                    <p><strong>Средний возраст:</strong> 32 лет </p>
+                </div>
+                
+                <div class="map-tabs">
+                    <button class="map-tab active" onclick="switchMap(this, 'Iran-population')">Население</button>
+                    <button class="map-tab" onclick="switchMap(this, 'Iran-density')">Возрастная структура</button>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-preview active" data-map="Egypt-population" onclick="openMapModal(this, 'Iran-population')">
+                        <img src="img\maps\Иран.png" alt="Население Ирана" class="map-thumb">
+                        <div class="map-overlay">Нажмите для увеличения</div>
+                    </div>
+                    
+                    <div class="map-preview" data-map="Egypt-density" onclick="openMapModal(this, 'Iran-density')">
+                        <img src="img\maps\Иран_2.png" alt="Возрастная структура населения" class="map-thumb">
                         <div class="map-overlay">Нажмите для увеличения</div>
                     </div>
                 </div>
