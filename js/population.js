@@ -44,3 +44,23 @@ function switchMap(btn, mapId) {
     maps.forEach(map => map.classList.remove('active'));
     container.querySelector(`.map-preview[data-map="${mapId}"]`).classList.add('active');
 }
+
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+const rootElement = document.documentElement;
+
+// Показываем кнопку, когда пользователь прокрутил вниз на 100px
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset > 100) {
+    scrollToTopBtn.style.display = "block";
+  } else {
+    scrollToTopBtn.style.display = "none";
+  }
+});
+
+// Плавная прокрутка вверх при клике
+scrollToTopBtn.addEventListener("click", () => {
+  rootElement.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
