@@ -7,6 +7,11 @@
   --sa: #007749;
   --text-dark: #2c3e50;
   --text-light: #ecf0f1;
+  --font-size-xl: 1.5rem;     
+  --font-size-xxl: 1.75rem;   
+  --font-size-lg: 1.25rem;
+  --font-size-md: 1rem;
+  --font-size-sm: 0.875rem;
 }
 
 body {
@@ -14,6 +19,8 @@ body {
   margin: 0;
   line-height: 1.6;
   color: var(--text-dark);
+  min-width: 320px; 
+  overflow-x: hidden; 
 }
 
 /* Шапка */
@@ -45,6 +52,8 @@ body {
   display: inline-block;
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 8px;
+  font-size: clamp(2rem, 8vw, 3rem); 
+  padding: 0.5rem clamp(0.5rem, 3vw, 1rem);
 }
 /* Секции */
 .section-brazil {
@@ -215,20 +224,60 @@ body {
   }
 }
 
-/* Оптимизация для мобильных устройств */
+@media (max-width: 1024px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .intro-card, .news-section {
+    padding: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
-  .map-container {
-      height: calc(100vh - 100px);
+  :root {
+    --font-size-lg: 1.1rem;
+    --font-size-md: 0.95rem;
+    --font-size-sm: 0.8rem;
   }
   
-  .map-controls, .map-legend {
-      padding: 10px;
-      font-size: 0.9rem;
+  .brics-header {
+    padding: 0.75rem 1rem;
   }
   
-  .map-btn {
-      padding: 5px 10px;
+  .access-grid {
+    grid-template-columns: 1fr; /* Одна колонка на мобильных */
   }
+}
+
+/* Оптимизация карты для мобильных */
+#map {
+  height: 400px;
+  max-height: 60vh;
+}
+
+@media (max-width: 480px) {
+.container {
+  padding: 1rem;
+}
+
+.intro-card, .news-section, .access-card {
+  padding: 1rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+}
+
+/* Улучшаем футер для маленьких экранов */
+.nav-grid {
+  grid-template-columns: 1fr;
+}
+
+.footer-info {
+  flex-direction: column;
+  gap: 0.5rem;
+}
 }
 
 /* Стили для страницы с картой */
@@ -246,7 +295,12 @@ body {
   flex-grow: 1;
   position: relative;
 }
-
+/* Адаптивные изображения (добавьте при необходимости) */
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 /* Контейнер карты (адаптируйте под ваш случай) */
 #your-map-container {
   position: absolute;
