@@ -15,12 +15,14 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Montserrat', sans-serif;
   margin: 0;
   line-height: 1.6;
   color: var(--text-dark);
   min-width: 320px; 
   overflow-x: hidden; 
+  -webkit-font-smoothing: antialiased; /* Улучшает рендеринг в Safari */
+  text-rendering: optimizeLegibility; /* Оптимизация для iOS */
 }
 
 /* Шапка */
@@ -55,6 +57,11 @@ body {
   font-size: clamp(2rem, 8vw, 3rem); 
   padding: 0.5rem clamp(0.5rem, 3vw, 1rem);
 }
+
+.logo, .bebas-font {
+  font-family: 'Bebas Neue', 'Arial Rounded MT Bold', -apple-system, sans-serif;
+}
+
 /* Секции */
 .section-brazil {
   background-color: rgba(0, 151, 57, 0.1);

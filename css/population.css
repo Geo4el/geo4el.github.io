@@ -84,13 +84,17 @@
     margin: 0;
     font-size: 1.5rem;
     color: var(--text-dark);
-    font-family: 'Bebas Neue', cursive; 
+    font-family: 'Bebas Neue', 'Arial Rounded MT Bold', -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased; /* Улучшает рендеринг в Safari */
+    text-rendering: optimizeLegibility; /* Оптимизация для iOS */
 }
 
 .country-info {
     padding: 20px;
     line-height: 1.6;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Bebas Neue', 'Arial Rounded MT Bold', -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased; /* Улучшает рендеринг в Safari */
+    text-rendering: optimizeLegibility; /* Оптимизация для iOS */
 }
 
 .country-info p {
@@ -112,7 +116,7 @@
     padding: 8px 15px;
     margin-right: 5px;
     cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Bebas Neue', 'Arial Rounded MT Bold', -apple-system, sans-serif;
     font-size: 14px;
     color: #555;
     border-radius: 4px 4px 0 0;
@@ -201,7 +205,7 @@
     color: white;
     text-align: center;
     padding: 10px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Bebas Neue', 'Arial Rounded MT Bold', -apple-system, sans-serif;
 }
 
 .close-modal {
@@ -274,7 +278,7 @@
     font-size: 2rem;
     color: #2c3e50;
     margin-bottom: 30px;
-    font-family: 'Bebas Neue', cursive;
+    font-family: 'Bebas Neue', 'Arial Rounded MT Bold', -apple-system, sans-serif;
   }
   
   .world-maps-container {
@@ -344,7 +348,7 @@
     padding: 0 20px;
     font-size: 1.5rem;
     color: var(--brics-green);
-    font-family: 'Bebas Neue', cursive;
+    font-family: 'Bebas Neue', 'Arial Rounded MT Bold', -apple-system, sans-serif;
     letter-spacing: 1px;
     position: relative;
   }
