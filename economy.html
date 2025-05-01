@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Экономика стран БРИКС</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/economy.css">
+</head>
+<body>
+    <header class="brics-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <h1 class="logo">
+                    <span>БРИКС</span>
+                    <small>Экономические показатели</small>
+                </h1>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="population.html" class="nav-link">Население</a>
+                <a href="economy.html" class="nav-link active">Экономика</a>
+                <a href="thematic-maps.html" class="nav-link">Тематические карты</a>
+                <a href="map.html" class="nav-link">Карта</a>
+                <a href="about.html" class="nav-link">О проекте</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="economy-page">
+        <div class="container">
+            <section class="economy-intro intro-card">
+                <h2 class="section-title">Экономика стран БРИКС</h2>
+                <p>Сравнительный анализ ключевых экономических показателей стран-участниц объединения.</p>
+            </section>
+
+            <div class="country-selector">
+                <select id="countrySelect" class="brics-select">
+                    <option value="">Выберите страну</option>
+                    <option value="brazil">Бразилия</option>
+                    <option value="russia">Россия</option>
+                    <option value="india">Индия</option>
+                    <option value="china">Китай</option>
+                    <option value="sar">Южная Африка</option>
+                    <option value="Egypt">Египет</option>
+                </select>
+            </div>
+
+            <div class="country-economy-container">
+                <!-- Бразилия -->
+                <article class="country-economy section-brazil" id="brazil">
+                    <div class="country-header">
+                        <div class="country-flag">
+                            <img src="img/flags/Brazil.svg.png" alt="Флаг Бразилии" class="flag-svg">
+                        </div>
+                        <h3 class="country-name">Бразилия</h3>
+                    </div>
+                    
+                    <div class="economy-grid">
+                        <div class="economy-indicators">
+                            <div class="indicator">
+                                <h4>ВВП (2023)</h4>
+                                <p class="value">$2.1 трлн</p>
+                            </div>
+                            <div class="indicator">
+                                <h4>ВВП на душу</h4>
+                                <p class="value">$9,850</p>
+                            </div>
+                            <div class="indicator">
+                                <h4>Рост экономики</h4>
+                                <p class="value">+2.3%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="trade-relations">
+                            <h4>Торговые отношения</h4>
+                            <div class="trade-partners">
+                                <div class="partner">
+                                    <span class="partner-name">Китай</span>
+                                    <span class="partner-percent">28% экспорта</span>
+                                </div>
+                                <div class="partner">
+                                    <span class="partner-name">США</span>
+                                    <span class="partner-percent">13% экспорта</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="resources-map">
+                        <h4>Природно-ресурсный потенциал</h4>
+                        <div class="map-preview" 
+                        data-full-map="img\economy\brazil-map-full.png"
+                        data-preview-width="600"
+                        data-preview-height="400">
+                       <img src="img\economy\brazil-map-full.png" 
+                            alt="Ресурсы Бразилии" 
+                            loading="lazy"
+                            class="map-thumbnail">
+                       <div class="map-overlay">Нажмите для увеличения</div>
+                   </div>
+                </div>
+                </article>
+                
+                    <!-- Россия -->
+                <article class="country-economy section-russia" id="russia">
+                    <div class="country-header">
+                        <div class="country-flag">
+                            <img src="img\flags\Russia.svg.webp" alt="Флаг России" class="flag-svg">
+                        </div>
+                        <h3 class="country-name">Россия</h3>
+                    </div>
+                    
+                    <div class="economy-grid">
+                        <div class="economy-indicators">
+                            <div class="indicator">
+                                <h4>ВВП (2023)</h4>
+                                <p class="value">$2,021 трлн</p>
+                            </div>
+                            <div class="indicator">
+                                <h4>ВВП на душу</h4>
+                                <p class="value">$13,817</p>
+                            </div>
+                            <div class="indicator">
+                                <h4>Рост экономики</h4>
+                                <p class="value">+4.5%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="trade-relations">
+                            <h4>Торговые отношения</h4>
+                            <div class="trade-partners">
+                                <div class="partner">
+                                    <span class="partner-name">Китай</span>
+                                    <span class="partner-percent">28% экспорта</span>
+                                </div>
+                                <div class="partner">
+                                    <span class="partner-name">США</span>
+                                    <span class="partner-percent">13% экспорта</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="resources-map">
+                        <h4>Природно-ресурсный потенциал</h4>
+                        <div class="map-preview" 
+                        data-full-map="img\economy\Россия.png"
+                        data-preview-width="600"
+                        data-preview-height="400">
+                       <img src="img\economy\Россия.png" 
+                            alt="Ресурсы Бразилии" 
+                            loading="lazy"
+                            class="map-thumbnail">
+                       <div class="map-overlay">Нажмите для увеличения</div>
+                   </div>
+                </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Модальное окно для карты -->
+    <div id="mapModal" class="map-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="map-title" id="mapTitle"></div>
+            <img id="fullMapImage" src="" alt="" class="full-map">
+        </div>
+    </div>
+
+    <footer class="brics-footer">
+        <div class="footer-content">
+            <nav class="footer-nav">
+                <ul class="nav-grid">
+                    <li><a href="index.html" class="nav-link">Главная</a></li>
+                    <li><a href="population.html" class="nav-link">Демография</a></li>
+                    <li><a href="economy.html" class="nav-link">Экономика</a></li>
+                    <li><a href="thematic-maps.html" class="nav-link">Тематические карты</a></li>
+                    <li><a href="map.html" class="nav-link">Интерактивная карта</a></li>
+                    <li><a href="about.html" class="nav-link">О проекте</a></li>
+                </ul>
+            </nav>
+            <div class="footer-info">
+                <div class="copyright">
+                    <p>© 2025 Социально-экономические характеристики стран БРИКС</p>
+                </div>
+                <div class="mini-logo">BRICS</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/economy.js"></script>
+</body>
+</html>
