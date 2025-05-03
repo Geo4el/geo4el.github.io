@@ -2,29 +2,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const downloadButtons = document.querySelectorAll('.download-btn');
     
     downloadButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const fileName = this.getAttribute('data-file');
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
             const githubUrl = this.getAttribute('data-github');
             
-            // Для GitHub используем прямую ссылку на raw-файл
-            downloadFromGitHub(githubUrl, fileName);
+            // Открываем в новом окне (так надежнее на GitHub Pages)
+            window.open(githubUrl, '_blank');
         });
     });
-    
-    function downloadFromGitHub(url, fileName) {
-        // Создаем временную ссылку
-        const link = document.createElement('a');
-        link.href = url;
-        link.target = '_blank';
-        link.download = fileName;
-        
-        // Добавляем обработчик для проверки доступности файла
-        link.onerror = function() {
-            alert('Файл не найден. Пожалуйста, попробуйте позже.');
-        };
-        
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
 });
