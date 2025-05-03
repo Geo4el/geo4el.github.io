@@ -19,10 +19,10 @@
             </div>
             <nav class="main-nav">
                 <a href="index.html" class="nav-link">Главная</a>
-                <a href="population.html" class="nav-link">Население</a>
+                <a href="population.html" class="nav-link">Демография</a>
                 <a href="economy.html" class="nav-link active">Экономика</a>
                 <a href="thematic-maps.html" class="nav-link">Тематические карты</a>
-                <a href="map.html" class="nav-link">Карта</a>
+                <a href="map.html" class="nav-link">Интерактивная карта</a>
                 <a href="about.html" class="nav-link">О проекте</a>
             </nav>
         </div>
@@ -42,8 +42,12 @@
                     <option value="russia">Россия</option>
                     <option value="india">Индия</option>
                     <option value="china">Китай</option>
-                    <option value="sar">Южная Африка</option>
+                    <option value="sar">Южно-Африканская Республика</option>
                     <option value="Egypt">Египет</option>
+                    <option value="Iran">Иран</option>
+                    <option value="UAE">Объединённые Арабские Эмираты</option>
+                    <option value="Ethiopia">Эфиопия</option>
+                    <option value="Indonesia">Индонезия</option>
                 </select>
             </div>
 
@@ -61,28 +65,84 @@
                         <div class="economy-indicators">
                             <div class="indicator">
                                 <h4>ВВП (2023)</h4>
-                                <p class="value">$2.1 трлн</p>
+                                <p class="value">$2.173 трлн</p>
                             </div>
                             <div class="indicator">
-                                <h4>ВВП на душу</h4>
-                                <p class="value">$9,850</p>
+                                <h4>ВВП на душу (2023)</h4>
+                                <p class="value">$9,258</p>
                             </div>
                             <div class="indicator">
-                                <h4>Рост экономики</h4>
-                                <p class="value">+2.3%</p>
+                                <h4>Рост экономики (2023)</h4>
+                                <p class="value">+3.4%</p>
                             </div>
                         </div>
                         
-                        <div class="trade-relations">
-                            <h4>Торговые отношения</h4>
-                            <div class="trade-partners">
-                                <div class="partner">
-                                    <span class="partner-name">Китай</span>
-                                    <span class="partner-percent">28% экспорта</span>
+                        <div class="trade-relations expanded-trade">
+                            <div class="trade-columns">
+                                <div class="trade-column">
+                                    <h4>Экспорт</h4>
+                                    <div class="trade-partners">
+                                        <div class="partner">
+                                            <span class="partner-name">Китай</span>
+                                            <span class="partner-percent">31%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">США</span>
+                                            <span class="partner-percent">12%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Аргентина</span>
+                                            <span class="partner-percent">8%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Нидерланды</span>
+                                            <span class="partner-percent">8%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Германия</span>
+                                            <span class="partner-percent">4%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Япония</span>
+                                            <span class="partner-percent">3%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Прочие</span>
+                                            <span class="partner-percent">34%</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="partner">
-                                    <span class="partner-name">США</span>
-                                    <span class="partner-percent">13% экспорта</span>
+                                
+                                <div class="trade-column">
+                                    <h4>Импорт</h4>
+                                    <div class="trade-partners">
+                                        <div class="partner">
+                                            <span class="partner-name">Китай</span>
+                                            <span class="partner-percent">21%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">США</span>
+                                            <span class="partner-percent">16%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Аргентина</span>
+                                            <span class="partner-percent">16%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Нидерланды</span>
+                                            <span class="partner-percent">3%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Германия</span>
+                                            <span class="partner-percent">6%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Япония</span>
+                                            <span class="partner-percent">5%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Прочие</span>
+                                            <span class="partner-percent">33%</span>
                                 </div>
                             </div>
                         </div>
@@ -101,6 +161,27 @@
                        <div class="map-overlay">Нажмите для увеличения</div>
                    </div>
                 </div>
+                <div class="compare-section">
+                    <button class="compare-btn" onclick="initComparison('brazil')">
+                        Сравнить с другой страной
+                    </button>
+                    <div class="comparison-controls" id="compareControls-brazil" style="display:none">
+                        <select class="compare-select" id="compareSelect-brazil">
+                            <option value="">Выберите страну</option>
+                            <option value="russia">Россия</option>
+                            <option value="india">Индия</option>
+                            <option value="china">Китай</option>
+                            <option value="sar">Южно-Африканская Республика</option>
+                            <option value="Egypt">Египет</option>
+                            <option value="Iran">Иран</option>
+                            <option value="UAE">Объединённые Арабские Эмираты</option>
+                            <option value="Ethiopia">Эфиопия</option>
+                            <option value="Indonesia">Индонезия</option>
+                        </select>
+                        <button class="confirm-btn" onclick="confirmComparison('brazil')">Сравнить</button>
+                        <button class="cancel-btn" onclick="cancelComparison('brazil')">Отмена</button>
+                    </div>
+                </div>
                 </article>
                 
                     <!-- Россия -->
@@ -116,28 +197,76 @@
                         <div class="economy-indicators">
                             <div class="indicator">
                                 <h4>ВВП (2023)</h4>
-                                <p class="value">$2,021 трлн</p>
+                                <p class="value">$1,78 трлн</p>
                             </div>
                             <div class="indicator">
-                                <h4>ВВП на душу</h4>
-                                <p class="value">$13,817</p>
+                                <h4>ВВП на душу (2023)</h4>
+                                <p class="value">$13,648</p>
                             </div>
                             <div class="indicator">
-                                <h4>Рост экономики</h4>
-                                <p class="value">+4.5%</p>
+                                <h4>Рост экономики (2023)</h4>
+                                <p class="value">+4.3%</p>
                             </div>
                         </div>
                         
-                        <div class="trade-relations">
-                            <h4>Торговые отношения</h4>
-                            <div class="trade-partners">
-                                <div class="partner">
-                                    <span class="partner-name">Китай</span>
-                                    <span class="partner-percent">28% экспорта</span>
+                        <div class="trade-relations expanded-trade">
+                            <div class="trade-columns">
+                                <div class="trade-column">
+                                    <h4>Экспорт</h4>
+                                    <div class="trade-partners">
+                                        <div class="partner">
+                                            <span class="partner-name">Китай</span>
+                                            <span class="partner-percent">15%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Нидерланды</span>
+                                            <span class="partner-percent">10%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Германия</span>
+                                            <span class="partner-percent">6%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Беларусь</span>
+                                            <span class="partner-percent">4%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Италия</span>
+                                            <span class="partner-percent">3,5%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Другие</span>
+                                            <span class="partner-percent">61,5%</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="partner">
-                                    <span class="partner-name">США</span>
-                                    <span class="partner-percent">13% экспорта</span>
+                                
+                                <div class="trade-column">
+                                    <h4>Импорт</h4>
+                                    <div class="trade-partners">
+                                        <div class="partner">
+                                            <span class="partner-name">Китай</span>
+                                            <span class="partner-percent">21%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Германия</span>
+                                            <span class="partner-percent">9%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">США</span>
+                                            <span class="partner-percent">7%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Беларусь</span>
+                                            <span class="partner-percent">4%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Италия</span>
+                                            <span class="partner-percent">3,5%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Другие</span>
+                                            <span class="partner-percent">55,5%</span>
                                 </div>
                             </div>
                         </div>
@@ -150,12 +279,1011 @@
                         data-preview-width="600"
                         data-preview-height="400">
                        <img src="img\economy\Россия.png" 
-                            alt="Ресурсы Бразилии" 
+                            alt="Ресурсы России" 
                             loading="lazy"
                             class="map-thumbnail">
                        <div class="map-overlay">Нажмите для увеличения</div>
                    </div>
                 </div>
+                <div class="compare-section">
+                    <button class="compare-btn" onclick="initComparison('russia')">
+                        Сравнить с другой страной
+                    </button>
+                    <div class="comparison-controls" id="compareControls-russia" style="display:none">
+                        <select class="compare-select" id="compareSelect-russia">
+                            <option value="">Выберите страну</option>
+                            <option value="brazil">Бразилия</option>
+                            <option value="india">Индия</option>
+                            <option value="china">Китай</option>
+                            <option value="sar">Южно-Африканская Республика</option>
+                            <option value="Egypt">Египет</option>
+                            <option value="Iran">Иран</option>
+                            <option value="UAE">Объединённые Арабские Эмираты</option>
+                            <option value="Ethiopia">Эфиопия</option>
+                            <option value="Indonesia">Индонезия</option>
+                        </select>
+                        <button class="confirm-btn" onclick="confirmComparison('russia')">Сравнить</button>
+                        <button class="cancel-btn" onclick="cancelComparison('russia')">Отмена</button>
+                    </div>
+                </div>
+                </article>
+
+                 <!-- Индия -->
+                <article class="country-economy section-india" id="india">
+                    <div class="country-header">
+                        <div class="country-flag">
+                            <img src="img\flags\India.svg.png" alt="Флаг Индии" class="flag-svg">
+                        </div>
+                        <h3 class="country-name">Индия</h3>
+                    </div>
+                    
+                    <div class="economy-grid">
+                        <div class="economy-indicators">
+                            <div class="indicator">
+                                <h4>ВВП (2023)</h4>
+                                <p class="value">$3,73 трлн</p>
+                            </div>
+                            <div class="indicator">
+                                <h4>ВВП на душу(2023)</h4>
+                                <p class="value">$2,500</p>
+                            </div>
+                            <div class="indicator">
+                                <h4>Рост экономики(2023)</h4>
+                                <p class="value">+6.1%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="trade-relations expanded-trade">
+                            <div class="trade-columns">
+                                <div class="trade-column">
+                                    <h4>Экспорт</h4>
+                                    <div class="trade-partners">
+                                        <div class="partner">
+                                            <span class="partner-name">США</span>
+                                            <span class="partner-percent">16,7%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">ОАЭ</span>
+                                            <span class="partner-percent">8,5%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Китай</span>
+                                            <span class="partner-percent">6,6%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Сингапур</span>
+                                            <span class="partner-percent">5,3%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Гонконг</span>
+                                            <span class="partner-percent">4%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Другие</span>
+                                            <span class="partner-percent">59%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="trade-column">
+                                    <h4>Импорт</h4>
+                                    <div class="trade-partners">
+                                        <div class="partner">
+                                            <span class="partner-name">Китай</span>
+                                            <span class="partner-percent">16%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">США</span>
+                                            <span class="partner-percent">6%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">ОАЭ</span>
+                                            <span class="partner-percent">6%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Саудовская Аравия</span>
+                                            <span class="partner-percent">5%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Швейцария</span>
+                                            <span class="partner-percent">4%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Другие</span>
+                                            <span class="partner-percent">63%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="resources-map">
+                        <h4>Природно-ресурсный потенциал</h4>
+                        <div class="map-preview" 
+                        data-full-map="img/economy/Индия.jpg"
+                        data-preview-width="600"
+                        data-preview-height="400">
+                       <img src="img/economy/Индия.jpg" 
+                            alt="Ресурсы Индии" 
+                            loading="lazy"
+                            class="map-thumbnail">
+                       <div class="map-overlay">Нажмите для увеличения</div>
+                   </div>
+                </div>
+                <div class="compare-section">
+                    <button class="compare-btn" onclick="initComparison('india')">
+                        Сравнить с другой страной
+                    </button>
+                    <div class="comparison-controls" id="compareControls-india" style="display:none">
+                        <select class="compare-select" id="compareSelect-india">
+                            <option value="">Выберите страну</option>
+                            <option value="brazil">Бразилия</option>
+                            <option value="russia">Россия</option>
+                            <option value="china">Китай</option>
+                            <option value="sar">Южно-Африканская Республика</option>
+                            <option value="Egypt">Египет</option>
+                            <option value="Iran">Иран</option>
+                            <option value="UAE">Объединённые Арабские Эмираты</option>
+                            <option value="Ethiopia">Эфиопия</option>
+                            <option value="Indonesia">Индонезия</option>
+                        </select>
+                        <button class="confirm-btn" onclick="confirmComparison('india')">Сравнить</button>
+                        <button class="cancel-btn" onclick="cancelComparison('india')">Отмена</button>
+                    </div>
+                </div>
+                </article>
+
+                <!-- Китай -->
+                <article class="country-economy section-china" id="china">
+                    <div class="country-header">
+                        <div class="country-flag">
+                            <img src="img\flags\China.svg.webp" alt="Флаг Китай" class="flag-svg">
+                        </div>
+                        <h3 class="country-name">Китай</h3>
+                    </div>
+                    
+                    <div class="economy-grid">
+                        <div class="economy-indicators">
+                            <div class="indicator">
+                                <h4>ВВП (2023)</h4>
+                                <p class="value">$18,3трлн</p>
+                            </div>
+                            <div class="indicator">
+                                <h4>ВВП на душу(2023)</h4>
+                                <p class="value">$12,556</p>
+                            </div>
+                            <div class="indicator">
+                                <h4>Рост экономики(2023)</h4>
+                                <p class="value">+5.2%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="trade-relations expanded-trade">
+                            <div class="trade-columns">
+                                <div class="trade-column">
+                                    <h4>Экспорт</h4>
+                                    <div class="trade-partners">
+                                        <div class="partner">
+                                            <span class="partner-name">США</span>
+                                            <span class="partner-percent">17,5%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Гонконг</span>
+                                            <span class="partner-percent">14,2%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Япония</span>
+                                            <span class="partner-percent">6,2%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Южная Корея</span>
+                                            <span class="partner-percent">4,5%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Вьетнам</span>
+                                            <span class="partner-percent">3,7%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Другие</span>
+                                            <span class="partner-percent">54%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="trade-column">
+                                    <h4>Импорт</h4>
+                                    <div class="trade-partners">
+                                        <div class="partner">
+                                            <span class="partner-name">Южная Корея</span>
+                                            <span class="partner-percent">11%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Япония</span>
+                                            <span class="partner-percent">9,2%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Германия</span>
+                                            <span class="partner-percent">6,4%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Австралия</span>
+                                            <span class="partner-percent">5,5%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">США</span>
+                                            <span class="partner-percent">5%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Другие</span>
+                                            <span class="partner-percent">63%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="resources-map">
+                        <h4>Природно-ресурсный потенциал</h4>
+                        <div class="map-preview" 
+                        data-full-map="img/economy/Китай.png"
+                        data-preview-width="600"
+                        data-preview-height="400">
+                       <img src="img/economy/Китай.png" 
+                            alt="Ресурсы Китая" 
+                            loading="lazy"
+                            class="map-thumbnail">
+                       <div class="map-overlay">Нажмите для увеличения</div>
+                   </div>
+                </div>
+                <div class="compare-section">
+                    <button class="compare-btn" onclick="initComparison('china')">
+                        Сравнить с другой страной
+                    </button>
+                    <div class="comparison-controls" id="compareControls-china" style="display:none">
+                        <select class="compare-select" id="compareSelect-china">
+                            <option value="">Выберите страну</option>
+                            <option value="brazil">Бразилия</option>
+                            <option value="russia">Россия</option>
+                            <option value="india">Индия</option>
+                            <option value="sar">Южно-Африканская Республика</option>
+                            <option value="Egypt">Египет</option>
+                            <option value="Iran">Иран</option>
+                            <option value="UAE">Объединённые Арабские Эмираты</option>
+                            <option value="Ethiopia">Эфиопия</option>
+                            <option value="Indonesia">Индонезия</option>
+                        </select>
+                        <button class="confirm-btn" onclick="confirmComparison('china')">Сравнить</button>
+                        <button class="cancel-btn" onclick="cancelComparison('china')">Отмена</button>
+                    </div>
+                </div>
+                </article>
+
+                <!-- ЮАР -->
+                <article class="country-economy sar" id="sar">
+                    <div class="country-header">
+                        <div class="country-flag">
+                            <img src="img\flags\South_Africa.svg.webp" alt="Флаг России" class="flag-svg">
+                        </div>
+                        <h3 class="country-name">Южно-Африканская Республика</h3>
+                    </div>
+                    
+                    <div class="economy-grid">
+                        <div class="economy-indicators">
+                            <div class="indicator">
+                                <h4>ВВП (2023)</h4>
+                                <p class="value">$0,380 трлн</p>
+                            </div>
+                            <div class="indicator">
+                                <h4>ВВП на душу(2023)</h4>
+                                <p class="value">$5,747</p>
+                            </div>
+                            <div class="indicator">
+                                <h4>Рост экономики(2023)</h4>
+                                <p class="value">+0.7%</p>
+                            </div>
+                        </div>
+
+                        <div class="trade-relations expanded-trade">
+                            <div class="trade-columns">
+                                <div class="trade-column">
+                                    <h4>Экспорт</h4>
+                                    <div class="trade-partners">
+                                        <div class="partner">
+                                            <span class="partner-name">Китай</span>
+                                            <span class="partner-percent">12%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">США</span>
+                                            <span class="partner-percent">8%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Германия</span>
+                                            <span class="partner-percent">7%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Япония</span>
+                                            <span class="partner-percent">5%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Другие</span>
+                                            <span class="partner-percent">68%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                        <div class="trade-column">
+                            <h4>Импорт</h4>
+                            <div class="trade-partners">
+                                <div class="partner">
+                                    <span class="partner-name">Китай</span>
+                                    <span class="partner-percent">20%</span>
+                                </div>
+                                <div class="partner">
+                                    <span class="partner-name">Германия</span>
+                                    <span class="partner-percent">10%</span>
+                                </div>
+                                <div class="partner">
+                                    <span class="partner-name">США</span>
+                                    <span class="partner-percent">8%</span>
+                                </div>
+                                <div class="partner">
+                                    <span class="partner-name">Индия</span>
+                                    <span class="partner-percent">5%</span>
+                                </div>
+                                <div class="partner">
+                                    <span class="partner-name">Другие</span>
+                                    <span class="partner-percent">57%</span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="resources-map">
+                        <h4>Природно-ресурсный потенциал</h4>
+                        <div class="map-preview" 
+                        data-full-map="img\economy\ЮАР.png"
+                        data-preview-width="600"
+                        data-preview-height="400">
+                       <img src="img\economy\ЮАР.png" 
+                            alt="Ресурсы Южно-Африканской Республики" 
+                            loading="lazy"
+                            class="map-thumbnail">
+                       <div class="map-overlay">Нажмите для увеличения</div>
+                   </div>
+                </div>
+                <div class="compare-section">
+                    <button class="compare-btn" onclick="initComparison('sar')">
+                        Сравнить с другой страной
+                    </button>
+                    <div class="comparison-controls" id="compareControls-sar" style="display:none">
+                        <select class="compare-select" id="compareSelect-sar">
+                            <option value="">Выберите страну</option>
+                            <option value="brazil">Бразилия</option>
+                            <option value="russia">Россия</option>
+                            <option value="india">Индия</option>
+                            <option value="china">Китай</option>
+                            <option value="Egypt">Египет</option>
+                            <option value="Iran">Иран</option>
+                            <option value="UAE">Объединённые Арабские Эмираты</option>
+                            <option value="Ethiopia">Эфиопия</option>
+                            <option value="Indonesia">Индонезия</option>
+                        </select>
+                        <button class="confirm-btn" onclick="confirmComparison('sar')">Сравнить</button>
+                        <button class="cancel-btn" onclick="cancelComparison('sar')">Отмена</button>
+                    </div>
+                </div>
+                </article>
+
+                <!-- Египет -->
+                <article class="country-economy section-Egypt" id="Egypt">
+                    <div class="country-header">
+                        <div class="country-flag">
+                            <img src="img\flags\Egypt.svg" alt="Флаг России" class="flag-svg">
+                        </div>
+                        <h3 class="country-name">Египет</h3>
+                    </div>
+                    
+                    <div class="economy-grid">
+                        <div class="economy-indicators">
+                            <div class="indicator">
+                                <h4>ВВП (2023)</h4>
+                                <p class="value">$0,396 трлн</p>
+                            </div>
+                            <div class="indicator">
+                                <h4>ВВП на душу (2023)</h4>
+                                <p class="value">$16,960</p>
+                            </div>
+                            <div class="indicator">
+                                <h4>Рост экономики (2023)</h4>
+                                <p class="value">+1.8%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="trade-relations expanded-trade">
+                            <div class="trade-columns">
+                                <div class="trade-column">
+                                    <h4>Экспорт</h4>
+                                    <div class="trade-partners">
+                                        <div class="partner">
+                                            <span class="partner-name">Европейский Союз</span>
+                                            <span class="partner-percent">15%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Китай</span>
+                                            <span class="partner-percent">10%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">США</span>
+                                            <span class="partner-percent">8%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">ОАЭ</span>
+                                            <span class="partner-percent">6%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Турция</span>
+                                            <span class="partner-percent">4%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Другие</span>
+                                            <span class="partner-percent">57%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="trade-column">
+                                    <h4>Импорт</h4>
+                                    <div class="trade-partners">
+                                        <div class="partner">
+                                            <span class="partner-name">Китай</span>
+                                            <span class="partner-percent">20%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">США</span>
+                                            <span class="partner-percent">10%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Германия</span>
+                                            <span class="partner-percent">8%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Италия</span>
+                                            <span class="partner-percent">6%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Россия</span>
+                                            <span class="partner-percent">4%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Другие</span>
+                                            <span class="partner-percent">52%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="resources-map">
+                        <h4>Природно-ресурсный потенциал</h4>
+                        <div class="map-preview" 
+                        data-full-map="img\economy\Египет.jpg"
+                        data-preview-width="600"
+                        data-preview-height="400">
+                       <img src="img\economy\Египет.jpg" 
+                            alt="Ресурсы Египта" 
+                            loading="lazy"
+                            class="map-thumbnail">
+                       <div class="map-overlay">Нажмите для увеличения</div>
+                   </div>
+                </div>
+                <div class="compare-section">
+                    <button class="compare-btn" onclick="initComparison('Egypt')">
+                        Сравнить с другой страной
+                    </button>
+                    <div class="comparison-controls" id="compareControls-Egypt" style="display:none">
+                        <select class="compare-select" id="compareSelect-Egypt">
+                            <option value="">Выберите страну</option>
+                            <option value="brazil">Бразилия</option>
+                            <option value="russia">Россия</option>
+                            <option value="india">Индия</option>
+                            <option value="china">Китай</option>
+                            <option value="sar">Южно-Африканская Республика</option>
+                            <option value="Iran">Иран</option>
+                            <option value="UAE">Объединённые Арабские Эмираты</option>
+                            <option value="Ethiopia">Эфиопия</option>
+                            <option value="Indonesia">Индонезия</option>
+                        </select>
+                        <button class="confirm-btn" onclick="confirmComparison('Egypt')">Сравнить</button>
+                        <button class="cancel-btn" onclick="cancelComparison('Egypt')">Отмена</button>
+                    </div>
+                </article>
+
+                <!-- ОАЭ -->
+                <article class="country-economy section-UAE" id="UAE">
+                    <div class="country-header">
+                        <div class="country-flag">
+                            <img src="img/flags/ОАЭ.svg" alt="Флаг ОАЭ" class="flag-svg">
+                        </div>
+                        <h3 class="country-name">Объединённые Арабские Эмираты</h3>
+                    </div>
+                    
+                    <div class="economy-grid">
+                        <div class="economy-indicators">
+                            <div class="indicator">
+                                <h4>ВВП (2023)</h4>
+                                <p class="value">$0,501 трлн</p>
+                            </div>
+                            <div class="indicator">
+                                <h4>ВВП на душу (2023)</h4>
+                                <p class="value">$43,000</p>
+                            </div>
+                            <div class="indicator">
+                                <h4>Рост экономики (2023)</h4>
+                                <p class="value">+3.8%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="trade-relations expanded-trade">
+                            <div class="trade-columns">
+                                <div class="trade-column">
+                                    <h4>Экспорт</h4>
+                                    <div class="trade-partners">
+                                        <div class="partner">
+                                            <span class="partner-name">Индия</span>
+                                            <span class="partner-percent">12%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Китай</span>
+                                            <span class="partner-percent">10%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">США</span>
+                                            <span class="partner-percent">9%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Саудовская Аравия</span>
+                                            <span class="partner-percent">6%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Страны ЕС</span>
+                                            <span class="partner-percent">5%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Другие</span>
+                                            <span class="partner-percent">58%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="trade-column">
+                                    <h4>Импорт</h4>
+                                    <div class="trade-partners">
+                                        <div class="partner">
+                                            <span class="partner-name">Китай</span>
+                                            <span class="partner-percent">22%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Индия</span>
+                                            <span class="partner-percent">14%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">США</span>
+                                            <span class="partner-percent">7%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Германия</span>
+                                            <span class="partner-percent">6%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Япония</span>
+                                            <span class="partner-percent">4%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Другие</span>
+                                            <span class="partner-percent">47%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="resources-map">
+                        <h4>Природно-ресурсный потенциал</h4>
+                        <div class="map-preview" 
+                        data-full-map="img\economy\ОАЭ.jpg"
+                        data-preview-width="600"
+                        data-preview-height="400">
+                       <img src="img\economy\ОАЭ.jpg" 
+                            alt="Ресурсы Объединённых Арабских Эмиратов" 
+                            loading="lazy"
+                            class="map-thumbnail">
+                       <div class="map-overlay">Нажмите для увеличения</div>
+                   </div>
+                </div>
+                <div class="compare-section">
+                    <button class="compare-btn" onclick="initComparison('UAE')">
+                        Сравнить с другой страной
+                    </button>
+                    <div class="comparison-controls" id="compareControls-UAE" style="display:none">
+                        <select class="compare-select" id="compareSelect-UAE">
+                            <option value="">Выберите страну</option>
+                            <option value="brazil">Бразилия</option>
+                            <option value="russia">Россия</option>
+                            <option value="india">Индия</option>
+                            <option value="china">Китай</option>
+                            <option value="sar">Южно-Африканская Республика</option>
+                            <option value="Iran">Иран</option>
+                            <option value="Egypt">Египет</option>
+                            <option value="Ethiopia">Эфиопия</option>
+                            <option value="Indonesia">Индонезия</option>
+                        </select>
+                        <button class="confirm-btn" onclick="confirmComparison('UAE')">Сравнить</button>
+                        <button class="cancel-btn" onclick="cancelComparison('UAE')">Отмена</button>
+                    </div>
+                </article>
+
+                <!-- Иран -->
+                <article class="country-economy section-Iran" id="Iran">
+                    <div class="country-header">
+                        <div class="country-flag">
+                            <img src="img\flags\ir.svg" alt="Флаг Ирана" class="flag-svg">
+                        </div>
+                        <h3 class="country-name">Иран</h3>
+                    </div>
+                    
+                    <div class="economy-grid">
+                        <div class="economy-indicators">
+                            <div class="indicator">
+                                <h4>ВВП (2023)</h4>
+                                <p class="value">$0,404 трлн</p>
+                            </div>
+                            <div class="indicator">
+                                <h4>ВВП на душу (2023)</h4>
+                                <p class="value">$5,668</p>
+                            </div>
+                            <div class="indicator">
+                                <h4>Рост экономики (2023)</h4>
+                                <p class="value">+3.0%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="trade-relations expanded-trade">
+                            <div class="trade-columns">
+                                <div class="trade-column">
+                                    <h4>Экспорт</h4>
+                                    <div class="trade-partners">
+                                        <div class="partner">
+                                            <span class="partner-name">Китай</span>
+                                            <span class="partner-percent">30%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Индия</span>
+                                            <span class="partner-percent">15%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Италия</span>
+                                            <span class="partner-percent">10%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Турция</span>
+                                            <span class="partner-percent">8%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">ОАЭ</span>
+                                            <span class="partner-percent">5%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Другие</span>
+                                            <span class="partner-percent">32%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="trade-column">
+                                    <h4>Импорт</h4>
+                                    <div class="trade-partners">
+                                        <div class="partner">
+                                            <span class="partner-name">Китай</span>
+                                            <span class="partner-percent">25%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Турция</span>
+                                            <span class="partner-percent">15%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">ОАЭ</span>
+                                            <span class="partner-percent">10%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Индия</span>
+                                            <span class="partner-percent">8%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Южная Корея</span>
+                                            <span class="partner-percent">5%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Другие</span>
+                                            <span class="partner-percent">37%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="resources-map">
+                        <h4>Природно-ресурсный потенциал</h4>
+                        <div class="map-preview" 
+                        data-full-map="img\economy\Иран.jpg"
+                        data-preview-width="600"
+                        data-preview-height="400">
+                       <img src="img\economy\Иран.jpg" 
+                            alt="Ресурсы Ирана" 
+                            loading="lazy"
+                            class="map-thumbnail">
+                       <div class="map-overlay">Нажмите для увеличения</div>
+                   </div>
+                </div>
+                <div class="compare-section">
+                    <button class="compare-btn" onclick="initComparison('Iran')">
+                        Сравнить с другой страной
+                    </button>
+                    <div class="comparison-controls" id="compareControls-Iran" style="display:none">
+                        <select class="compare-select" id="compareSelect-Iran">
+                            <option value="">Выберите страну</option>
+                            <option value="brazil">Бразилия</option>
+                            <option value="russia">Россия</option>
+                            <option value="india">Индия</option>
+                            <option value="china">Китай</option>
+                            <option value="sar">Южно-Африканская Республика</option>
+                            <option value="UAE">Объединённые Арабские Эмираты</option>
+                            <option value="Egypt">Египет</option>
+                            <option value="Ethiopia">Эфиопия</option>
+                            <option value="Indonesia">Индонезия</option>
+                        </select>
+                        <button class="confirm-btn" onclick="confirmComparison('Iran')">Сравнить</button>
+                        <button class="cancel-btn" onclick="cancelComparison('Iran')">Отмена</button>
+                    </div>
+                </article>
+
+                 <!-- Эфиопия -->
+                <article class="country-economy section-Ethiopia" id="Ethiopia">
+                    <div class="country-header">
+                        <div class="country-flag">
+                            <img src="img\flags\Эфиопия.svg" alt="Флаг Эфиопии" class="flag-svg">
+                        </div>
+                        <h3 class="country-name">Эфиопия</h3>
+                    </div>
+                    
+                    <div class="economy-grid">
+                        <div class="economy-indicators">
+                            <div class="indicator">
+                                <h4>ВВП (2023)</h4>
+                                <p class="value">$0,163 трлн</p>
+                            </div>
+                            <div class="indicator">
+                                <h4>ВВП на душу (2023)</h4>
+                                <p class="value">$875,37</p>
+                            </div>
+                            <div class="indicator">
+                                <h4>Рост экономики (2023)</h4>
+                                <p class="value">+8.7%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="trade-relations expanded-trade">
+                            <div class="trade-columns">
+                                <div class="trade-column">
+                                    <h4>Экспорт</h4>
+                                    <div class="trade-partners">
+                                        <div class="partner">
+                                            <span class="partner-name">Китай</span>
+                                            <span class="partner-percent">25%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">США</span>
+                                            <span class="partner-percent">15%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Саудовская Аравия</span>
+                                            <span class="partner-percent">10%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Сомали</span>
+                                            <span class="partner-percent">8%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Нидерланды</span>
+                                            <span class="partner-percent">5%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Другие</span>
+                                            <span class="partner-percent">37%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="trade-column">
+                                    <h4>Импорт</h4>
+                                    <div class="trade-partners">
+                                        <div class="partner">
+                                            <span class="partner-name">Китай</span>
+                                            <span class="partner-percent">30%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Индия</span>
+                                            <span class="partner-percent">12%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Турция</span>
+                                            <span class="partner-percent">10%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">США</span>
+                                            <span class="partner-percent">7%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Южная Корея</span>
+                                            <span class="partner-percent">5%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Другие</span>
+                                            <span class="partner-percent">36%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="resources-map">
+                        <h4>Природно-ресурсный потенциал</h4>
+                        <div class="map-preview" 
+                        data-full-map="img\economy\Эфиопия.jpg"
+                        data-preview-width="600"
+                        data-preview-height="400">
+                       <img src="img\economy\Эфиопия.jpg" 
+                            alt="Ресурсы Эфиопии" 
+                            loading="lazy"
+                            class="map-thumbnail">
+                       <div class="map-overlay">Нажмите для увеличения</div>
+                   </div>
+                </div>
+                <div class="compare-section">
+                    <button class="compare-btn" onclick="initComparison('Ethiopia')">
+                        Сравнить с другой страной
+                    </button>
+                    <div class="comparison-controls" id="compareControls-Ethiopia" style="display:none">
+                        <select class="compare-select" id="compareSelect-Ethiopia">
+                            <option value="">Выберите страну</option>
+                            <option value="brazil">Бразилия</option>
+                            <option value="russia">Россия</option>
+                            <option value="india">Индия</option>
+                            <option value="china">Китай</option>
+                            <option value="sar">Южно-Африканская Республика</option>
+                            <option value="UAE">Объединённые Арабские Эмираты</option>
+                            <option value="Egypt">Египет</option>
+                            <option value="Iran">Иран</option>
+                            <option value="Indonesia">Индонезия</option>
+                        </select>
+                        <button class="confirm-btn" onclick="confirmComparison('Ethiopia')">Сравнить</button>
+                        <button class="cancel-btn" onclick="cancelComparison('Ethiopia')">Отмена</button>
+                    </div>
+                </article>
+
+                <!-- Индонезия -->
+                <article class="country-economy section-Indonesia" id="Indonesia">
+                    <div class="country-header">
+                        <div class="country-flag">
+                            <img src="img\flags\Индонезия.svg" alt="Флаг Индонезии" class="flag-svg">
+                        </div>
+                        <h3 class="country-name">Индонезия</h3>
+                    </div>
+                    
+                    <div class="economy-grid">
+                        <div class="economy-indicators">
+                            <div class="indicator">
+                                <h4>ВВП (2023)</h4>
+                                <p class="value">$1,371 трлн</p>
+                            </div>
+                            <div class="indicator">
+                                <h4>ВВП на душу (2023)</h4>
+                                <p class="value">$4,192</p>
+                            </div>
+                            <div class="indicator">
+                                <h4>Рост экономики (2023)</h4>
+                                <p class="value">+5.05%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="trade-relations expanded-trade">
+                            <div class="trade-columns">
+                                <div class="trade-column">
+                                    <h4>Экспорт</h4>
+                                    <div class="trade-partners">
+                                        <div class="partner">
+                                            <span class="partner-name">Китай</span>
+                                            <span class="partner-percent">20%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">США</span>
+                                            <span class="partner-percent">15%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Япония</span>
+                                            <span class="partner-percent">10%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Сингапур</span>
+                                            <span class="partner-percent">8%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Индия</span>
+                                            <span class="partner-percent">5%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Другие</span>
+                                            <span class="partner-percent">42%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="trade-column">
+                                    <h4>Импорт</h4>
+                                    <div class="trade-partners">
+                                        <div class="partner">
+                                            <span class="partner-name">Китай</span>
+                                            <span class="partner-percent">30%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Япония</span>
+                                            <span class="partner-percent">12%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">США</span>
+                                            <span class="partner-percent">8%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Сингапур</span>
+                                            <span class="partner-percent">7%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Малазия</span>
+                                            <span class="partner-percent">5%</span>
+                                        </div>
+                                        <div class="partner">
+                                            <span class="partner-name">Другие</span>
+                                            <span class="partner-percent">38%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="resources-map">
+                        <h4>Природно-ресурсный потенциал</h4>
+                        <div class="map-preview" 
+                        data-full-map="img\economy\Индонезия.png"
+                        data-preview-width="600"
+                        data-preview-height="400">
+                       <img src="img\economy\Индонезия.png" 
+                            alt="Ресурсы Индонезии" 
+                            loading="lazy"
+                            class="map-thumbnail">
+                       <div class="map-overlay">Нажмите для увеличения</div>
+                   </div>
+                </div>
+                <div class="compare-section">
+                    <button class="compare-btn" onclick="initComparison('Indonesia')">
+                        Сравнить с другой страной
+                    </button>
+                    <div class="comparison-controls" id="compareControls-Indonesia" style="display:none">
+                        <select class="compare-select" id="compareSelect-Indonesia">
+                            <option value="">Выберите страну</option>
+                            <option value="brazil">Бразилия</option>
+                            <option value="russia">Россия</option>
+                            <option value="india">Индия</option>
+                            <option value="china">Китай</option>
+                            <option value="sar">Южно-Африканская Республика</option>
+                            <option value="UAE">Объединённые Арабские Эмираты</option>
+                            <option value="Egypt">Египет</option>
+                            <option value="Iran">Иран</option>
+                            <option value="Ethiopia">Эфиопия</option>
+                        </select>
+                        <button class="confirm-btn" onclick="confirmComparison('Indonesia')">Сравнить</button>
+                        <button class="cancel-btn" onclick="cancelComparison('Indonesia')">Отмена</button>
+                    </div>
                 </article>
             </div>
         </div>

@@ -72,7 +72,38 @@ body {
   background-color: rgba(0, 57, 166, 0.1);
   border-left: 5px solid var(--russia);
 }
-
+.section-india {
+  background-color: rgba(0, 151, 57, 0.1);
+  border-left: 5px solid var(--india);
+}
+.section-china {
+  background-color: rgba(0, 151, 57, 0.1);
+  border-left: 5px solid var(--china);
+}
+.section-sar {
+  background-color: rgba(0, 151, 57, 0.1);
+  border-left: 5px solid var(--sa);
+}
+.section-Egypt {
+  background-color: rgba(0, 151, 57, 0.1);
+  border-left: 5px solid var(--india);
+}
+.section-Iran {
+  background-color: rgba(0, 151, 57, 0.1);
+  border-left: 5px solid var(--china);
+}
+.section-UAE {
+  background-color: rgba(0, 151, 57, 0.1);
+  border-left: 5px solid var(--russia);
+}
+.section-Ethiopia {
+  background-color: rgba(0, 151, 57, 0.1);
+  border-left: 5px solid var(--brazil);
+}
+.section-Indonesia {
+  background-color: rgba(0, 151, 57, 0.1);
+  border-left: 5px solid var(--sa);
+}
 /* Общие стили контейнера */
 .container {
   max-width: 1200px;
@@ -393,3 +424,50 @@ html, body {
       height: calc(100vh - 60px);
   }
 }
+
+.main-nav .nav-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #c5cae9;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 8px 18px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 2px solid transparent;
+  user-select: none;
+}
+
+.main-nav .nav-link:hover {
+  background-color: #3949ab;
+  color: #fff;
+  border-color: #7986cb;
+  box-shadow: 0 4px 8px rgba(57, 73, 171, 0.4);
+}
+
+.main-nav .nav-link.active {
+  background-color: #e8eaf6;
+  color: #1a237e;
+  font-weight: 700;
+  border-color: #5c6bc0;
+  box-shadow: 0 4px 10px rgba(92, 107, 192, 0.6);
+}
+
+/* Responsive for mobile devices */
+@media (max-width: 600px) {
+  .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+  .main-nav {
+      width: 100%;
+      justify-content: center;
+      gap: 12px;
+      padding-top: 10px;
+  }
+  .main-nav .nav-link {
+      padding: 10px 14px;
+      font-size: 0.9rem;
+  }
+}
+

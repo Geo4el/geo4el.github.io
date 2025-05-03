@@ -196,3 +196,210 @@
         font-size: 25px;
     }
 }
+/* Стили для сравнения */
+.compare-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed #ddd;
+}
+
+.compare-btn {
+    background: var(--india);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s;
+}
+
+.compare-btn:hover {
+    background: #e68a00;
+}
+
+.compare-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.compare-select {
+    flex: 1;
+    min-width: 150px;
+    padding: 0.6rem 1rem;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+}
+
+.confirm-btn {
+    background: var(--china);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background: transparent;
+    color: var(--text-dark);
+    border: 1px solid #ddd;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.comparison-view {
+    margin-top: 2rem;
+    background: rgba(0,0,0,0.03);
+    padding: 1.5rem;
+    border-radius: 8px;
+    display: none;
+}
+
+.comparison-view.active {
+    display: block;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 1rem 0;
+}
+
+.comparison-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.comparison-flag {
+    width: 40px;
+    height: 25px;
+    border-radius: 3px;
+}
+/* Адаптивность */
+@media (max-width: 768px) {
+    .comparison-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .compare-buttons {
+        flex-direction: column;
+    }
+}
+
+/* Компактные индикаторы */
+.compact-indicators {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    align-self: flex-start;
+}
+
+.compact-indicators .indicator {
+    padding: 0.8rem;
+    min-width: 120px;
+}
+
+.compact-indicators .value {
+    font-size: 1.2rem;
+}
+
+/* Расширенные торговые отношения */
+.expanded-trade {
+    grid-column: span 2;
+}
+
+.trade-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.trade-column {
+    background: rgba(0,0,0,0.03);
+    padding: 1.2rem;
+    border-radius: 8px;
+}
+
+.trade-column h4 {
+    margin-top: 0;
+    color: var(--text-dark);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding-bottom: 0.5rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .economy-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .compact-indicators {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .expanded-trade {
+        grid-column: span 1;
+    }
+    
+    .trade-columns {
+        grid-template-columns: 1fr;
+    }
+}
+/* Мобильная адаптация строк сравнения */
+.comparison-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 0.6rem;
+    font-size: 0.9rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.comparison-row span {
+    flex: 1 1 60%;
+    color: #555;
+    padding-right: 0.5rem;
+}
+
+.comparison-row strong {
+    flex: 1 1 40%;
+    text-align: right;
+    color: var(--text-dark);
+}
+
+@media (max-width: 480px) {
+    .comparison-row {
+        flex-direction: column;
+        gap: 0.2rem;
+        padding: 0.5rem 0;
+    }
+    
+    .comparison-row span,
+    .comparison-row strong {
+        flex: 1 1 100%;
+        text-align: left;
+    }
+    
+    .comparison-row strong {
+        font-weight: 600;
+        color: var(--russia);
+    }
+    
+    .section-title {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .comparison-country {
+        padding: 1rem;
+    }
+}

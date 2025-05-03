@@ -83,3 +83,138 @@ function closeModal() {
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeModal();
 });
+
+let comparisonBaseCountry = null;
+
+function initComparison(countryId) {
+    // Скрываем все открытые контролы сравнения
+    document.querySelectorAll('.compare-controls').forEach(el => {
+        el.style.display = 'none';
+    });
+    
+    // Устанавливаем базовую страну для сравнения
+    comparisonBaseCountry = countryId;
+    
+    // Показываем контролы для выбранной страны
+    const controls = document.getElementById(`compareControls-${countryId}`);
+    controls.style.display = 'flex';
+    
+    // Обновляем список стран (исключая текущую)
+    const select = document.getElementById(`compareSelect-${countryId}`);
+    Array.from(select.options).forEach(option => {
+        option.disabled = option.value === countryId;
+    });
+}
+
+function cancelComparison(countryId) {
+    document.getElementById(`compareControls-${countryId}`).style.display = 'none';
+    comparisonBaseCountry = null;
+}
+
+function confirmComparison(countryId) {
+    const select = document.getElementById(`compareSelect-${countryId}`);
+    const selectedCountry = select.value;
+    
+    if (!selectedCountry) {
+        alert('Пожалуйста, выберите страну для сравнения');
+        return;
+    }
+    
+    showComparison(countryId, selectedCountry);
+    cancelComparison(countryId);
+}
+
+function showComparison(country1Id, country2Id) {
+    const country1 = document.getElementById(country1Id);
+    const country2 = document.getElementById(country2Id);
+    
+    // Создаем HTML для сравнения
+    const comparisonHTML = `
+        <div class="comparison-view active">
+            <h3>Сравнение стран</h3>
+            <div class="comparison-grid">
+                <div>
+                    <div class="comparison-header">
+                        <img src="${country1.querySelector('.flag-svg').src}" 
+                             alt="${country1Id}" class="comparison-flag">
+                        <h4>${country1.querySelector('.country-name').textContent}</h4>
+                    </div>
+                    ${getComparisonData(country1)}
+                </div>
+                <div>
+                    <div class="comparison-header">
+                        <img src="${country2.querySelector('.flag-svg').src}" 
+                             alt="${country2Id}" class="comparison-flag">
+                        <h4>${country2.querySelector('.country-name').textContent}</h4>
+                    </div>
+                    ${getComparisonData(country2)}
+                </div>
+            </div>
+            <button class="brics-btn" onclick="closeComparison()">Закрыть сравнение</button>
+        </div>
+    `;
+    
+    // Вставляем на страницу (или обновляем существующее)
+    let comparisonContainer = document.querySelector('.comparison-view');
+    if (!comparisonContainer) {
+        comparisonContainer = document.createElement('div');
+        document.querySelector('.country-economy-container').appendChild(comparisonContainer);
+    }
+    comparisonContainer.innerHTML = comparisonHTML;
+    
+    // Прокрутка к результатам сравнения
+    comparisonContainer.scrollIntoView({ behavior: 'smooth' });
+}
+
+function getComparisonData(countryElement) {
+const exportPartners = Array.from(countryElement.querySelectorAll('.trade-column:nth-child(1) .partner'))
+        .map(p => `<li>${p.querySelector('.partner-name').textContent} (${p.querySelector('.partner-percent').textContent})</li>`)
+        .join('');
+
+    const importPartners = Array.from(countryElement.querySelectorAll('.trade-column:nth-child(2) .partner'))
+        .map(p => `<li>${p.querySelector('.partner-name').textContent} (${p.querySelector('.partner-percent').textContent})</li>`)
+        .join(''); 
+    return `
+        <p><strong>ВВП:</strong> ${countryElement.querySelector('.indicator .value').textContent}</p>
+        <p><strong>ВВП на душу:</strong> ${countryElement.querySelectorAll('.indicator .value')[1].textContent}</p>
+        <p><strong>Рост экономики:</strong> ${countryElement.querySelectorAll('.indicator .value')[2].textContent}</p>
+        <p><strong>Основные торговые партнеры:</strong></p>
+        <h5>Экспорт:</h5>
+        <ul>
+            ${exportPartners}
+        </ul>
+        <h5>Импорт:</h5>
+        <ul>
+            ${importPartners}
+        </ul>
+    `;
+}
+
+function closeComparison() {
+    const comparisonContainer = document.querySelector('.comparison-view');
+    if (comparisonContainer) {
+        comparisonContainer.remove();
+    }
+}
+
+function updateTradeData(countryId, data) {
+    const countryElement = document.getElementById(countryId);
+    
+    // Обновление экспорта
+    const exportContainer = countryElement.querySelector('.trade-column:nth-child(1) .trade-partners');
+    exportContainer.innerHTML = data.export.map(partner => `
+        <div class="partner">
+            <span class="partner-name">${partner.name}</span>
+            <span class="partner-percent">${partner.percent}%</span>
+        </div>
+    `).join('');
+    
+    // Обновление импорта
+    const importContainer = countryElement.querySelector('.trade-column:nth-child(2) .trade-partners');
+    importContainer.innerHTML = data.import.map(partner => `
+        <div class="partner">
+            <span class="partner-name">${partner.name}</span>
+            <span class="partner-percent">${partner.percent}%</span>
+        </div>
+    `).join('');
+}
