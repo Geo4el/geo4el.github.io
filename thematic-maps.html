@@ -2,8 +2,9 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Тематические карты стран БРИКС</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тематические карты БРИКС</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/thematic-maps.css">
@@ -29,77 +30,67 @@
     </header>
 
     <main class="main-content">
-        <section class="country-section">
+        <div class="countries-container">
+            
             <!-- Бразилия -->
-            <div class="country-card" id="brazil">
-                <div class="country-header">Бразилия</div>
-                <div class="download-list">
-                    <div class="download-item">
-                        <span class="download-title">Карта населения</span>
-                        <a href="https://raw.githubusercontent.com/Geo4el/geo4el.github.io/raw/main/img/maps/img\maps\Бразилия-население.png"
-                            class="download-link" 
-                            download target="_blank">
-                            Скачать
-                        </a>
-                    </div>
-                    <div class="download-item">
-                        <span class="download-title">Возрастная структура</span>
-                        <button class="download-btn" 
-                                data-file="brazil_age.pdf"
-                                data-github="https://raw.githubusercontent.com/yourusername/yourrepo/main/files/brazil_age.pdf">
-                            Скачать
-                        </button>
-                    </div>
+            <div class="country-block" id="brazil">
+                <div class="country-title">
+                <h1><b> Бразилия </b></h1>
                 </div>
+                <ul class="maps-list">
+                    <li class="map-item">
+                        <span class="map-name">Карта населения</span>
+                        <a href="https://raw.githubusercontent.com/Geo4el/geo4el.github.io/main/img/maps/Бразилия-население.png"  
+                           class="download-btn" 
+                           download="brazil-population.png">
+                           <span class="download-icon"></span> Скачать
+                        </a>
+                    </li>
+                    <li class="map-item">
+                        <span class="map-name">Возрастная структура населения</span>
+                        <a href="https://raw.githubusercontent.com/Geo4el/geo4el.github.io/main/img/maps/Бразилия-возрастная структура населения.png" 
+                           class="download-btn" 
+                           download="brazil-age.png">
+                           <span class="download-icon"></span> Скачать
+                        </a>
+                        <li class="map-item">
+                            <span class="map-name">Природно-ресурсный потенциал</span>
+                            <a href="https://raw.githubusercontent.com/Geo4el/geo4el.github.io/main/img/economy/brazil-map-full.png" 
+                               class="download-btn" 
+                               download="brazil-age.png">
+                               <span class="download-icon"></span> Скачать
+                            </a>
+                        <li class="map-item">
+                        <span class="map-name">Архив</span>
+                        <a href="https://github.com/username/repo-name/releases/download/v1.0/archive.zip"
+                        download
+                        target="_blank">
+                        Скачать архив
+                         </a>
+                    </li>
+                </ul>
             </div>
 
             <!-- Россия -->
-            <div class="country-card" id="russia">
-                <div class="country-header">Россия</div>
-                <div class="download-list">
-                    <div class="download-item">
-                        <span class="download-title">Карта населения</span>
-                        <button class="download-btn" data-file="russia_population.pdf">Скачать</button>
-                    </div>
-                    <div class="download-item">
-                        <span class="download-title">Возрастная структура</span>
-                        <button class="download-btn" data-file="russia_age.pdf">Скачать</button>
-                    </div>
-                    <div class="download-item">
-                        <span class="download-title">Природные ресурсы</span>
-                        <button class="download-btn" data-file="russia_resources.pdf">Скачать</button>
-                    </div>
-                    <div class="download-item">
-                        <span class="download-title">Полный архив</span>
-                        <button class="download-btn" data-file="russia_all.zip">Скачать</button>
-                    </div>
+            <div class="country-block" id="russia">
+                <div class="country-title">
+                    <h1><b> Россия </b></h1>
                 </div>
+                <ul class="maps-list">
+                    <li class="map-item">
+                        <span class="map-name">Карта населения</span>
+                        <a href="https://raw.githubusercontent.com/Geo4el/geo4el.github.io/main/img/maps/russia-population.png" 
+                           class="download-btn" 
+                           download="russia-population.png">
+                           <span class="download-icon">↓</span> Скачать
+                        </a>
+                    </li>
+                </ul>
             </div>
 
-            <!-- Индия -->
-            <div class="country-card" id="india">
-                <div class="country-header">Индия</div>
-                <div class="download-list">
-                    <!-- Аналогичная структура для Индии -->
-                </div>
-            </div>
+            <!-- Другие страны БРИКС -->
 
-            <!-- Китай -->
-            <div class="country-card" id="china">
-                <div class="country-header">Китай</div>
-                <div class="download-list">
-                    <!-- Аналогичная структура для Китая -->
-                </div>
-            </div>
-
-            <!-- ЮАР -->
-            <div class="country-card" id="south-africa">
-                <div class="country-header">Южная Африка</div>
-                <div class="download-list">
-                    <!-- Аналогичная структура для ЮАР -->
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
 
     <footer class="brics-footer">
@@ -109,7 +100,7 @@
                     <li><a href="index.html" class="nav-link">Главная</a></li>
                     <li><a href="population.html" class="nav-link">Демография</a></li>
                     <li><a href="economy.html" class="nav-link">Экономика</a></li>
-                    <li><a href="thematic-maps.html" class="nav-link">Тематические карты</a></li>
+                    <li><a href="thematic-maps.html" class="nav-link active">Тематические карты</a></li>
                     <li><a href="map.html" class="nav-link">Интерактивная карта</a></li>
                     <li><a href="about.html" class="nav-link">О проекте</a></li>
                 </ul>

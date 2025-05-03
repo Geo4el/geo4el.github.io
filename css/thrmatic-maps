@@ -1,81 +1,126 @@
-/* Основные стили для страницы тематических карт */
+/* Основной контент */
 .main-content {
-    padding: 40px 0;
-    background-color: #f5f5f5;
-    min-height: calc(100vh - 120px);
+    flex: 1;
+    padding: 30px 0;
+    background-color: #f5f7fa;
 }
 
-/* Стили для карточек стран */
-.country-section {
+/* Контейнер стран */
+.countries-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.country-card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+/* Карточка страны */
+.country-block {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     margin-bottom: 30px;
     overflow: hidden;
+    border-left: 4px solid #1a3e72;
+    transition: transform 0.3s ease;
 }
 
-.country-header {
-    background-color: #1a3e72;
+.country-block:hover {
+    transform: translateY(-3px);
+}
+
+/* Заголовок страны */
+.country-title {
+    background: linear-gradient(to right, #1a3e72, #2a5699);
     color: white;
-    padding: 15px 20px;
-    font-size: 20px;
-    font-weight: 700;
+    padding: 18px 25px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.download-list {
-    padding: 20px;
+.country-flag {
+    width: 60px;
+    height: 40px;
 }
 
-.download-item {
+.flag-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Список карт */
+.maps-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.map-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 0;
-    border-bottom: 1px solid #eee;
+    padding: 16px 25px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s;
 }
 
-.download-item:last-child {
+.map-item:hover {
+    background-color: #f8faff;
+}
+
+.map-item:last-child {
     border-bottom: none;
 }
 
-.download-title {
+.map-name {
     font-weight: 500;
-    color: #333;
+    color: #444;
 }
 
+/* Кнопка скачивания */
 .download-btn {
-    background-color: #1a3e72;
+    background: #1a3e72;
     color: white;
     border: none;
-    padding: 8px 15px;
-    border-radius: 4px;
+    padding: 8px 16px;
+    border-radius: 6px;
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
 }
 
 .download-btn:hover {
-    background-color: #0d2b56;
-    transform: translateY(-2px);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    background: #0d2b56;
+    box-shadow: 0 3px 8px rgba(26, 62, 114, 0.3);
+}
+
+.download-icon {
+    font-size: 1rem;
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
-    .download-item {
+    .country-title {
+        font-size: 1.2rem;
+        padding: 15px 20px;
+    }
+    
+    .map-item {
         flex-direction: column;
         align-items: flex-start;
+        gap: 12px;
+        padding: 15px 20px;
     }
     
     .download-btn {
-        margin-top: 10px;
-        width: 100%;
+        align-self: flex-end;
+        padding: 6px 12px;
     }
 }
