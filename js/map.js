@@ -49,14 +49,6 @@ const bricsPlusStyle = {
     fillOpacity: 1
 };
 
-// Стиль для антропогенных объектов
-const anthropogenicStyle = {
-    fillColor: '#800020', 
-    weight: 0,
-    opacity: 1,
-    fillOpacity: 0.7,
-    color: 'transparent'
-};
 
 // Стили для природных зон
 const naturalColors = {
@@ -286,7 +278,6 @@ function closePopup() {
 const bricsLayer = L.layerGroup();
 const brics5Layer = L.layerGroup();
 const bricsPlusLayer = L.layerGroup();
-const anthropogenicLayer = L.layerGroup();
 const reserveLayer = L.layerGroup();
 const naturalLayer = L.layerGroup();
 const coalLayer = L.layerGroup();
@@ -301,16 +292,21 @@ Promise.all([
     fetch('brics.geojson').then(res => res.json()),
     fetch('brics5.geojson').then(res => res.json()),
     fetch('brics+.geojson').then(res => res.json()),
-    fetch('anthropogenic.geojson').then(res => res.json()),
-    fetch('reserve.geojson').then(res => res.json()), 
+    fetch('reserve.geojson').then(res => res.json()),
     fetch('cities.geojson').then(res => res.json()),
     fetch('coal.geojson').then(res => res.json()),
     fetch('gold.geojson').then(res => res.json()),
     fetch('oil.geojson').then(res => res.json()),
     fetch('gas.geojson').then(res => res.json()),
-    fetch('natural.geojson').then(res => res.json())
+    Promise.all([
+        fetch('natural1.geojson').then(res => res.json()),
+        fetch('natural2.geojson').then(res => res.json())
+    ]).then(([natural1Data, natural2Data]) => ({
+        type: "FeatureCollection",
+        features: [...natural1Data.features, ...natural2Data.features]
+    }))
 ])
-.then(([bricsData, brics5Data, bricsPlusData, anthropogenicData, reserveData, citiesData, coalData, goldData, oilData, gasData, naturalData]) => {
+.then(([bricsData, brics5Data, bricsPlusData, reserveData, citiesData, coalData, goldData, oilData, gasData, naturalData]) => {
     // Слой BRICS
 L.geoJSON(bricsData, {
     style: bricsStyle,
@@ -572,25 +568,6 @@ L.geoJSON(brics5Data, {
     }
     }).addTo(bricsPlusLayer);
 
-    // Слой антропогенных объектов
-    L.geoJSON(anthropogenicData, {
-        style: anthropogenicStyle,
-        onEachFeature: (feature, layer) => {
-            layer.on('click', () => {
-                showPopup({
-                    title: feature.properties.name || "Антропогенный объект",
-                    description: `
-                        <div class="anthropogenic-info">
-                            <p><strong>Тип:</strong> ${feature.properties.type || 'не указан'}</p>
-                            <p><strong>Площадь:</strong> ${feature.properties.area ? feature.properties.area + ' га' : 'нет данных'}</p>
-                            <p><strong>Описание:</strong> ${feature.properties.description || 'нет описания'}</p>
-                        </div>
-                    `,
-                    image: feature.properties.image || null
-                });
-            });
-        }
-    }).addTo(anthropogenicLayer);
 
     // леса по типу
     L.geoJSON(naturalData, {
@@ -770,12 +747,7 @@ L.geoJSON(brics5Data, {
             layer.on('click', () => {
                 showPopup({
                     title: feature.properties.name || "ООПТ",
-                    description: `
-                        <div class="reserve-info">
-                            <p><strong>Тип:</strong> ${feature.properties.type || 'не указан'}</p>
-                            <p><strong>Площадь:</strong> ${feature.properties.area || 'нет данных'} га</p>
-                        </div>
-                    `
+                    description: ``
                 });
             });
         }
@@ -793,15 +765,8 @@ L.geoJSON(brics5Data, {
         onEachFeature: (feature, layer) => {
             layer.on('click', () => {
                 showPopup({
-                    title: feature.properties.name || "Угольное месторождение",
-                    description: `
-                        <div class="coal-info">
-                            <p><strong>Тип угля:</strong> ${feature.properties.type || 'не указан'}</p>
-                            <p><strong>Запасы:</strong> ${feature.properties.reserves || 'нет данных'}</p>
-                            <p><strong>Статус разработки:</strong> ${feature.properties.status || 'не указан'}</p>
-                        </div>
-                    `,
-                    image: feature.properties.image || null
+                    title: feature.properties.name || "Месторождение угля",
+                    description: ``,
                 });
             });
         }
@@ -818,15 +783,8 @@ L.geoJSON(brics5Data, {
         onEachFeature: (feature, layer) => {
             layer.on('click', () => {
                 showPopup({
-                    title: feature.properties.name || "Золотое месторождение",
-                    description: `
-                        <div class="gold-info">
-                            <p><strong>Тип месторождения:</strong> ${feature.properties.type || 'не указан'}</p>
-                            <p><strong>Запасы:</strong> ${feature.properties.reserves || 'нет данных'}</p>
-                            <p><strong>Статус разработки:</strong> ${feature.properties.status || 'не указан'}</p>
-                        </div>
-                    `,
-                    image: feature.properties.image || null
+                    title: feature.properties.name || "Месторождение золота",
+                    description: ``,
                 });
             });
         }
@@ -843,15 +801,8 @@ L.geoJSON(brics5Data, {
         onEachFeature: (feature, layer) => {
             layer.on('click', () => {
                 showPopup({
-                    title: feature.properties.name || "Нефтяное месторождение",
-                    description: `
-                        <div class="oil-info">
-                            <p><strong>Тип месторождения:</strong> ${feature.properties.type || 'не указан'}</p>
-                            <p><strong>Запасы:</strong> ${feature.properties.reserves || 'нет данных'}</p>
-                            <p><strong>Статус разработки:</strong> ${feature.properties.status || 'не указан'}</p>
-                        </div>
-                    `,
-                    image: feature.properties.image || null
+                    title: feature.properties.name || "Месторождение нефти",
+                    description: ``,
                 });
             });
         }
@@ -867,15 +818,8 @@ L.geoJSON(brics5Data, {
         onEachFeature: (feature, layer) => {
             layer.on('click', () => {
                 showPopup({
-                    title: feature.properties.name || "Газовое месторождение",
-                    description: `
-                        <div class="gas-info">
-                            <p><strong>Тип месторождения:</strong> ${feature.properties.type || 'не указан'}</p>
-                            <p><strong>Запасы:</strong> ${feature.properties.reserves || 'нет данных'}</p>
-                            <p><strong>Статус разработки:</strong> ${feature.properties.status || 'не указан'}</p>
-                        </div>
-                    `,
-                    image: feature.properties.image || null
+                    title: feature.properties.name || "Месторождение газа",
+                    description: ``,
                 });
             });
         }
@@ -1256,7 +1200,6 @@ const allData = {
         ...bricsData.features,
         ...brics5Data.features,
         ...bricsPlusData.features,
-        ...anthropogenicData.features,
         ...reserveData.features,
         ...citiesData.features,
         ...coalData.features,
@@ -1281,7 +1224,6 @@ L.control.layers(null, {
     "Cтраны-основатели БРИКС": brics5Layer,
     "Cтраны БРИКС": bricsLayer,
     "Страны-партнеры БРИКС": bricsPlusLayer,
-    "Антропогенные территории": anthropogenicLayer,
     "Природные зоны": naturalLayer,
     "ООПТ (заповедники)": reserveLayer,
     "Месторождения угля": coalLayer,
